@@ -30,9 +30,9 @@ public class AdminServlet extends HttpServlet {
             classify(request,response);
         }else if("Singer".equals(pathInfo)){
             singer(request,response);
-        }else if("User".equals(pathInfo)){
+        }/*else if("User".equals(pathInfo)){
             User(request,response);
-        }
+        }*/
     }
 
     /**
@@ -40,7 +40,7 @@ public class AdminServlet extends HttpServlet {
      * @param request
      * @param response
      */
-    private void User(HttpServletRequest request, HttpServletResponse response) {
+ /*   private void User(HttpServletRequest request, HttpServletResponse response) {
         try {
             System.out.println("+++++++++++++++++++++++++++++++++");
             List<Singer> SingerList=as.SingerListAll();
@@ -53,7 +53,7 @@ public class AdminServlet extends HttpServlet {
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
+    }*/
 
     /**
      * 歌手列表展示
