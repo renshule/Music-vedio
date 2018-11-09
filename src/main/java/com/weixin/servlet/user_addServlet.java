@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet( "/user_addServlet")
+@WebServlet( "/user_addServlet/*")
 public class user_addServlet extends HttpServlet {
     user_addService user_addService = new user_addServiceImp();
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
