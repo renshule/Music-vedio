@@ -1,7 +1,7 @@
 package com.weixin.servlet;
 
 import com.weixin.bean.User;
-import com.weixin.servce.servceimple.user_addServiceImp;
+import com.weixin.service.serviceimple.user_addServiceImp;
 import com.weixin.servce.user_addService;
 
 import javax.servlet.ServletException;

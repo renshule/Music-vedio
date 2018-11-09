@@ -1,4 +1,4 @@
-package com.weixin.dao.UserDaoImple;
+package com.weixin.dao.AdminDaoImple;
 
 import com.weixin.bean.Classify;
 import com.weixin.bean.Singer;

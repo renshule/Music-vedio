@@ -1,4 +1,4 @@
-package com.weixin.servce.servceimple;
+package com.weixin.service.serviceimple;
 
 import com.weixin.bean.User;
 import com.weixin.dao.UserDaoImple.user_addDaoImp;
