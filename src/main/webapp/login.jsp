@@ -22,10 +22,10 @@
     <div>
         <div>
 
-            <h1 class="logo-name">H+</h1>
+            <h1 class="logo-name">Music</h1>
 
         </div>
-        <h3>欢迎使用 H+</h3>
+        <h3>欢迎使用 Music Video</h3>
 
         <form class="m-t" role="form" action="${pageContext.request.contextPath}/LoginServlet" method="post">
             <div class="form-group">
@@ -38,7 +38,9 @@
 
 
             <p class="text-muted text-center"> <a href="login.html#"><small style="color:red">${errMsg}</small></a></p>
-
+            <p>
+                <a href="user_add.jsp">注册</a>
+            </p>
         </form>
     </div>
 </div>
