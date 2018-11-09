@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <c3p0-config>
     <default-config>
-        <property name="user">group2</property>
-        <property name="password">123</property>
+        <property name="user">root</property>
+        <property name="password">1234</property>
         <property name="driverClass">com.mysql.jdbc.Driver</property>
+<<<<<<< HEAD
         <property name="jdbcUrl">jdbc:mysql://59.110.218.138:3306/group2</property>
+=======
+        <property name="jdbcUrl">jdbc:mysql://localhost:3306/music_1082</property>
+>>>>>>> a080f50e74cafc4da1810cf856e5a0bc755dd788
     </default-config> <!-- This app is massive! -->
 </c3p0-config>
