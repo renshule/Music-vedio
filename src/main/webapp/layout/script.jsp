@@ -12,10 +12,10 @@
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/contabs.js"></script>
 
     <!-- 第三方插件 -->
-    <script src="${pageContext.request.contextPath}/js/plugins/pace/pace.min.js"></script>
-    <%--<script src="${pageContext.request.contextPath}/js/jquery.min.js"></script>
+    <%--<script src="${pageContext.request.contextPath}/js/plugins/pace/pace.min.js"></script>
+    &lt;%&ndash;<script src="${pageContext.request.contextPath}/js/jquery.min.js"></script>
     <!-- Bootstrap -->
-    <script src="${pageContext.request.contextPath}/js/bootstrap.js"></script>--%>
+    <script src="${pageContext.request.contextPath}/js/bootstrap.js"></script>&ndash;%&gt;
     <!-- App -->
     <script src="${pageContext.request.contextPath}/js/app.js"></script>
     <script src="${pageContext.request.contextPath}/js/slimscroll/jquery.slimscroll.min.js"></script>
@@ -26,5 +26,5 @@
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/jPlayer/jquery.jplayer.min.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/jPlayer/add-on/jplayer.playlist.min.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/jPlayer/demo.js"></script>
-<%--
+&lt;%&ndash;--%>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/js/jPlayer/jplayer.flat.css" type="text/css" />--%>

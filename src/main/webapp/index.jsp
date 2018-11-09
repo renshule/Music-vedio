@@ -62,7 +62,16 @@
                                 <a class="J_menuItem" href="${pageContext.request.contextPath}/music/classify.jsp" data-index="0">歌曲分类</a>
                             </li>
                             <li>
-                                <a class="J_menuItem" href="${pageContext.request.contextPath}/music/singform.jsp">歌曲列表</a>
+                                <a class="J_menuItem" href="${pageContext.request.contextPath}/music/singer.jsp">歌手列表</a>
+                            </li>
+                            <li>
+                                <a class="J_menuItem" href="${pageContext.request.contextPath}/music/singform.jsp">广告列表</a>
+                            </li>
+                            <li>
+                                <a class="J_menuItem" href="${pageContext.request.contextPath}/music/sing.jsp">歌曲列表</a>
+                            </li>
+                            <li>
+                                <a class="J_menuItem" href="${pageContext.request.contextPath}/music/user.jsp">用户列表</a>
                             </li>
                         </ul>
                     </li>
