@@ -40,7 +40,7 @@ public class user_addServlet extends HttpServlet {
             }else{
                 request.setAttribute("msg","注册失败");
             }
-            request.getRequestDispatcher("/index1.jsp").forward(request,response);
+            request.getRequestDispatcher("/user_add.jsp").forward(request,response);
         } catch (Exception e) {
             e.printStackTrace();
         }
