@@ -240,7 +240,7 @@
                         <li>
                             <a href="#">登录注册相关 <span class="fa arrow"></span></a>
                             <ul class="nav nav-third-level">
-                                <li><a href="login.html" target="_blank">登录页面</a>
+                                <li><a href="login.jsp" target="_blank">登录页面</a>
                                 </li>
                                 <li><a href="login_v2.html" target="_blank">登录页面v2</a>
                                 </li>
