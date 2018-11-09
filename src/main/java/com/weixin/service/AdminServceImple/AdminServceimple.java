@@ -3,7 +3,7 @@ package com.weixin.servce.servceimple;
 import com.weixin.bean.Classify;
 import com.weixin.bean.Singer;
 import com.weixin.dao.AdminDao;
-import com.weixin.dao.UserDaoImple.AdminDaoImple;
+import com.weixin.dao.AdminDaoImple.AdminDaoImple;
 import com.weixin.servce.AdminServce;
 
 import java.sql.SQLException;

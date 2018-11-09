@@ -35,7 +35,7 @@ public class LoginServlet extends HttpServlet {
                 //登录成功：
                 //跳转到index首页：
                 request.getSession().setAttribute("user",user);
-                response.sendRedirect(getServletContext().getContextPath()+"/index.jsp");
+                response.sendRedirect(getServletContext().getContextPath()+"/genres.html");
             }
         } catch (SQLException e) {
             e.printStackTrace();
