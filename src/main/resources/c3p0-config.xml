@@ -4,6 +4,6 @@
         <property name="user">group2</property>
         <property name="password">123</property>
         <property name="driverClass">com.mysql.jdbc.Driver</property>
-        <property name="jdbcUrl">jdbc:mysql://59.110.218.138:3306/music_1082</property>
+        <property name="jdbcUrl">jdbc:mysql://59.110.218.138:3306/group2</property>
     </default-config> <!-- This app is massive! -->
 </c3p0-config>

@@ -22,7 +22,7 @@
                     <h5>用户注册</h5>
                 </div>
                 <div class="ibox-content">
-                    <form class="form-horizontal m-t" action="${pageContext.request.contextPath}/studentServlet/add">
+                    <form class="form-horizontal m-t" action="${pageContext.request.contextPath}/user_addServlet/add">
                         <div class="form-group">
                             <label class="col-sm-3 control-label">用户名:</label>
                             <div class="col-sm-8">
