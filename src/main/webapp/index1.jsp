@@ -14,7 +14,6 @@
     <!--[if lt IE 9]>
     <meta http-equiv="refresh" content="0;ie.html" />
     <![endif]-->
-
     <jsp:include page="/layout/css.jsp"/>
 </head>
 
