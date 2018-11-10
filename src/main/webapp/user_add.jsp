@@ -9,6 +9,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>用户注册</title>
+    <style type="text/css">
+        .err{
+            color: red;
+            font-size: 12px;
+            font-weight: bold;
+        }
+    </style>
 
     <jsp:include page="/layout/css.jsp"/>
 </head>
@@ -22,7 +29,7 @@
                     <h5>用户注册</h5>
                 </div>
                 <div class="ibox-content">
-                    <form class="form-horizontal m-t" action="${pageContext.request.contextPath}/user_addServlet/add">
+                    <form class="form-horizontal m-t" method="post" action="${pageContext.request.contextPath}/user_addServlet/add">
                         <div class="form-group">
                             <label class="col-sm-3 control-label">用户名:</label>
                             <div class="col-sm-8">
@@ -51,12 +58,36 @@
             </div>
         </div>
     </div>
-    <jsp:include page="/layout/script.jsp"/>
 
+    </div>
 </body>
+<jsp:include page="/layout/script.jsp"/>
 <script>
-    <c:if test="${msg!=null}">
-    layer.msg("${msg}");
-    </c:if>
+    $('form-horizontal m-t').validate({
+        rules:{
+            name:{
+                required:true,
+                rangelength:[5,8]
+            },
+            psd:'required',
+            rpsd:{
+                equalTo:"[name=psd]"
+            }
+        },
+        messages:{
+            name:{
+                required:'必须输入用户名',
+                rangelength:'用户名必须是5-8位'
+            },
+            psd:'密码不能为空',
+            rpsd:{
+                equalTo:'两次密码输入不一致'
+            }
+        },
+        errorPlacement: function(error, element) {
+            $('#'+element.attr('name')+'Msg').append(error);
+        }
+    });
 </script>
+
 </html>
