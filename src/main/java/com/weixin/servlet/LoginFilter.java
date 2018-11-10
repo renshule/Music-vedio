@@ -5,7 +5,7 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 
-@WebFilter("/user_add.jsp")
+@WebFilter("/ooo")
 public class LoginFilter implements Filter {
     public void destroy() {
     }

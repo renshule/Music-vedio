@@ -271,7 +271,7 @@
                 </div>
                 <div class="left">
                     <div class="author-name">
-                        Beau-zihan
+                        root
                         <small class="chat-date">
                             08:45
                         </small>
