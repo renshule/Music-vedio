@@ -15,6 +15,7 @@ public class LoginFilter implements Filter {
         HttpServletRequest request = (HttpServletRequest) servletRequest;
         String uri = request.getRequestURI();
 
+
         if(uri.equals("/")||uri.contains("jsp")&&!uri.endsWith("login.jsp")||uri.contains("Servlet")&&!uri.endsWith("LoginServlet")){
             if(request.getSession().getAttribute("user")!=null){
                 filterChain.doFilter(servletRequest,servletResponse);
