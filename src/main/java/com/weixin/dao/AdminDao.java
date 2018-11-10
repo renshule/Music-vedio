@@ -18,4 +18,8 @@ public interface AdminDao {
     boolean removeById(int id) throws SQLException;
 
     boolean removeAllSings(String[] idsArr)throws SQLException;
+
+    boolean insertSinger(Singer singer)throws SQLException;
+
+    boolean insertSing(Sing sing) throws SQLException;
 }

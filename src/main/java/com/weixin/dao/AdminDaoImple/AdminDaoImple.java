@@ -70,4 +70,14 @@ public class AdminDaoImple implements AdminDao {
         sql.append(")");
         return C3P0utils.qr.update(sql.toString(),idsArr)>0;
     }
+
+    @Override
+    public boolean insertSinger(Singer singer) throws SQLException {
+        return C3p0Utils.qr.update("insert into singer values(null,?,?)",singer.getSingerName(),singer.getSingerIntro())>0;
+    }
+
+    @Override
+    public boolean insertSing(Sing sing) throws SQLException {
+        return C3p0Utils.qr.update("insert into sing values(null,?,?,null,?,null)",sing.getSingName(),sing.getSingPic(),sing.getCId())>0;
+    }
 }

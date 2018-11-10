@@ -47,7 +47,7 @@
 
                     <table id="table"></table>
                     <div class="btn btn-warning" id="removeAll">删除所选</div>
-
+                    <a  class="btn btn-success" href="${pageContext.request.contextPath}/music/singAdd.jsp">添加歌曲</a>
                 </div>
             </div>
         </div>

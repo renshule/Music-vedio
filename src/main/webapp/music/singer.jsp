@@ -43,12 +43,15 @@
                         </a>
                     </div>
                 </div>
+
                 <div class="ibox-content">
 
                     <table id="table"></table>
                     <div class="btn btn-warning" id="removeAll">删除所选</div>
+                    <a  class="btn btn-success" href="${pageContext.request.contextPath}/music/singerAdd.jsp">添加分类</a>
 
                 </div>
+
             </div>
         </div>
 
@@ -91,7 +94,6 @@
         ]
 
     });
-
 </script>
 </body>
 

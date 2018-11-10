@@ -37,4 +37,15 @@ public class AdminServceimple implements AdminServce {
         return ad.removeAllSings(idsArr);
     }
 
+
+    @Override
+    public boolean insertSinger(Singer singer) throws SQLException {
+        return ad.insertSinger(singer);
+    }
+
+    @Override
+    public boolean insertSing(Sing sing) throws SQLException {
+        return ad.insertSing(sing);
+    }
+
 }

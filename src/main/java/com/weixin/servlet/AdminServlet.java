@@ -37,6 +37,67 @@ public class AdminServlet extends HttpServlet {
             removeById(request,response);
         }else if("removeAllSing".equals(pathInfo)){
             removeAllSing(request,response);
+        }else if("addSinger".equals(pathInfo)){
+            addSinger(request,response);
+        }else if ("addSing".equals(pathInfo)){
+            addSing(request,response);
+        }
+    }
+
+    /**
+     * 歌曲添加
+     * @param request
+     * @param response
+     */
+    private void addSing(HttpServletRequest request, HttpServletResponse response) {
+        String name = request.getParameter("name");
+        String pic = request.getParameter("pic");
+        request.getParameter()
+        int gender =Integer.valueOf(request.getParameter("gender"));
+        
+        Sing sing=new Sing(null,name,pic,null,gender,null,null);
+        try {
+            boolean b = as.insertSing(sing);
+            System.out.println(b);
+            if (b) {
+                System.out.println("1");
+                request.setAttribute("msg", "添加成功");
+
+            } else {
+                System.out.println("0");
+                request.setAttribute("msg", "添加失败");
+            }
+            request.getRequestDispatcher("/music/singAdd.jsp").forward(request, response);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    /**
+     * 歌手添加
+     * @param request
+     * @param response
+     */
+    private void addSinger(HttpServletRequest request, HttpServletResponse response) {
+        String name = request.getParameter("name");
+        String introduce = request.getParameter("introduce");
+        System.out.println("aiaiaiiaiiaiiaiaiiiia");
+        Singer singer=new Singer(null,name,introduce);
+        try {
+            boolean b = as.insertSinger(singer);
+            System.out.println(b);
+            if (b) {
+
+                request.setAttribute("msg", "添加成功");
+
+            } else {
+
+                request.setAttribute("msg", "添加失败");
+            }
+            request.getRequestDispatcher("/music/singerAdd.jsp").forward(request, response);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
