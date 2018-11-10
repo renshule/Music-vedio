@@ -23,6 +23,8 @@ public class LoginServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String name = request.getParameter("name");
         String passsword = request.getParameter("password");
+        request.setAttribute("name", name);
+
 
         try {
             User user = loginService.login(name, passsword);
@@ -31,11 +33,17 @@ public class LoginServlet extends HttpServlet {
                 //打回登录页:
                 request.setAttribute("errMsg","用户名或密码错误");
                 request.getRequestDispatcher("/login.jsp").forward(request,response);
+            }else if(user.getU_name().equals("root")){
+                request.getSession().setAttribute("user",user);
+                response.sendRedirect(getServletContext().getContextPath()+"/index.jsp");
             }else{
                 //登录成功：
-                //跳转到index首页：
-                request.getSession().setAttribute("user",user);
-                response.sendRedirect(getServletContext().getContextPath()+"/genres.html");
+                //跳转到genres.jsp首页：
+                /*request.getSession().setAttribute("user",user);
+                response.sendRedirect(getServletContext().getContextPath()+"/genres.jsp");*/
+                request.setAttribute("name",name);
+                request.getRequestDispatcher("/genres.jsp").forward(request,response);
+
             }
         } catch (SQLException e) {
             e.printStackTrace();

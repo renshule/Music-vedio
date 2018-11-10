@@ -1,3 +1,4 @@
+<%@page pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en" class="app">
 <head>  
@@ -87,7 +88,8 @@
               <span class="thumb-sm avatar pull-right m-t-n-sm m-b-n-sm m-l-sm">
                 <img src="images/a0.png" alt="...">
               </span>
-              John.Smith <b class="caret"></b>
+              ${name}
+              <b class="caret"></b>
             </a>
             <ul class="dropdown-menu animated fadeInRight">            
               <li>
@@ -157,7 +159,8 @@
                       </span>
                       <span class="hidden-nav-xs clear">
                         <span class="block m-l">
-                          <strong class="font-bold text-lt">John.Smith</strong> 
+                          <strong class="font-bold text-lt"><%=request.getAttribute("name")%>
+</strong>
                           <b class="caret"></b>
                         </span>
                         <span class="text-muted text-xs block m-l">Art Director</span>
