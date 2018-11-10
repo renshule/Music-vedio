@@ -86,9 +86,9 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-3 control-label" type="text" name="singername">歌手名称：</label>
+                                <label class="col-sm-3 control-label" type="text" name="singerName">歌手名称：</label>
                                 <div class="col-sm-8">
-                                    <input name="singername" minlength="2" type="text" class="form-control" >
+                                    <input name="singerName" minlength="2" type="text" class="form-control" >
                                 </div>
 
                             </div>

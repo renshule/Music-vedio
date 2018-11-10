@@ -52,7 +52,8 @@ public class AdminServlet extends HttpServlet {
     private void addSing(HttpServletRequest request, HttpServletResponse response) {
         String name = request.getParameter("name");
         String pic = request.getParameter("pic");
-        request.getParameter()
+        String singerName = request.getParameter("singerName");
+        Integer singerId=as.selectSingerByName(singerName);
         int gender =Integer.valueOf(request.getParameter("gender"));
         
         Sing sing=new Sing(null,name,pic,null,gender,null,null);
