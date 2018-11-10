@@ -82,7 +82,12 @@
             },
             {
                 field: 'cName',
-                title: '歌曲名称',
+                title: '类别名称',
+            },
+            {
+                title:'操作',
+                formatter:'caozuoFormater',
+                events:'operateEvents'
             }
         ]
 

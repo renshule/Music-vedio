@@ -68,7 +68,7 @@
 <script type="text/javascript">
 
     $('#table').bootstrapTable({
-       url:'${pageContext.request.contextPath}/AdminServlet/Singer',
+       url:'${pageContext.request.contextPath}/AdminServlet/selectAllSing',
         pagination:true,
        /* pageSize:5,
         pageList:[5,7,'All'],
@@ -81,17 +81,65 @@
                 checkbox:true
             },
             {
-                field: 'singerName',
-                title: '歌手名称',
+                field: 'singName',
+                title: '歌曲名称',
             },
             {
-                field: 'singerIntro',
-                title: '歌手简介',
-            },
+                field: 'singerName',
+                title: '歌手名称',
+            },{
+                title:'操作',
+                formatter:'caozuoFormater',
+                events:'operateEvents'
+            }
         ]
 
     });
-
+    window.operateEvents = {
+        'click .remove': function (e, value, row) {
+            console.log(e);
+            console.log(value);
+            console.log(row);
+            alert(row['singId']);
+            alert('You click remove action, row: ' + JSON.stringify(row));
+            //用ajax传递参数
+            $.post('${pageContext.request.contextPath}/AdminServlet/removeById?sing_id='+row['singId'],function (r) {
+                if(r){
+                    alert("删除成功");
+                    $('#table').bootstrapTable('refresh');
+                }else{
+                    alert("删除失败");
+                }
+            });
+        }
+    };
+    function caozuoFormater(value, row, index) {
+        return [
+            '<a class="remove" href="javascript:void(0)" title="Remove">',
+            '<i class="glyphicon glyphicon-remove"></i>',
+            '</a>',
+            '</div>'
+        ].join('');
+    };
+    $('#removeAll').click(function () {
+        if(confirm("确定删除所选?")){
+            json_arr=$('#table').bootstrapTable('getSelections');
+            arr='';
+            for (i in json_arr){
+                arr+=json_arr[i]['singId']+',';
+            }
+            arr1=arr.substring(0,arr.length-1);
+           alert(arr1);
+            $.post('${pageContext.request.contextPath}/AdminServlet/removeAllSing?ids='+arr1,function (r) {
+                if(r){
+                    alert("删除成功");
+                    $('#table').bootstrapTable('refresh');
+                }else{
+                    alert("删除失败");
+                }
+            });
+        }
+    });
 </script>
 </body>
 
