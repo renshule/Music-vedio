@@ -27,4 +27,4 @@
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/jPlayer/add-on/jplayer.playlist.min.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/jPlayer/demo.js"></script>
 &lt;%&ndash;--%>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/js/jPlayer/jplayer.flat.css" type="text/css" />--%>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/js/jPlayer/jplayer.flat.css" type="text/css" />
