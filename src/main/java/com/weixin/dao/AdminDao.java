@@ -22,4 +22,6 @@ public interface AdminDao {
     boolean insertSinger(Singer singer)throws SQLException;
 
     boolean insertSing(Sing sing) throws SQLException;
+
+    Integer selectSingerByNam(String singerName) throws SQLException;
 }

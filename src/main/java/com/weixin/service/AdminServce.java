@@ -24,4 +24,6 @@ public interface AdminServce {
     boolean insertSinger(Singer singer)throws SQLException;
 
     boolean insertSing(Sing sing)throws SQLException;
+
+    Integer selectSingerByName(String singerName) throws SQLException;
 }

@@ -5,6 +5,7 @@ import com.weixin.bean.Sing;
 import com.weixin.bean.Singer;
 import com.weixin.dao.AdminDao;
 import com.weixin.util.C3p0Utils;
+import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
 import util.C3P0utils;
 
@@ -71,13 +72,36 @@ public class AdminDaoImple implements AdminDao {
         return C3P0utils.qr.update(sql.toString(),idsArr)>0;
     }
 
+    /**
+     * 添加歌手
+     * @param singer
+     * @return
+     * @throws SQLException
+     */
     @Override
     public boolean insertSinger(Singer singer) throws SQLException {
         return C3p0Utils.qr.update("insert into singer values(null,?,?)",singer.getSingerName(),singer.getSingerIntro())>0;
     }
 
+    /**
+     * 添加歌曲
+     * @param sing
+     * @return
+     * @throws SQLException
+     */
     @Override
     public boolean insertSing(Sing sing) throws SQLException {
         return C3p0Utils.qr.update("insert into sing values(null,?,?,null,?,null)",sing.getSingName(),sing.getSingPic(),sing.getCId())>0;
+    }
+
+    /**
+     * 在添加歌曲时查找判断歌手与上一个一起联合用
+     * @param singerName
+     * @return
+     * @throws SQLException
+     */
+    @Override
+    public Integer selectSingerByNam(String singerName) throws SQLException {
+        return C3p0Utils.qr.query("select singer_id from singer where singer_name=?",new BeanHandler<Singer>(),singerName);
     }
 }

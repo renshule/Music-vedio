@@ -48,4 +48,9 @@ public class AdminServceimple implements AdminServce {
         return ad.insertSing(sing);
     }
 
+    @Override
+    public Integer selectSingerByName(String singerName) throws SQLException {
+        return ad.selectSingerByNam(singerName);
+    }
+
 }
