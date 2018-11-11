@@ -5,8 +5,8 @@ import com.weixin.bean.Sing;
 import com.weixin.bean.Singer;
 import com.weixin.dao.AdminDao;
 import com.weixin.util.C3p0Utils;
-import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
+import org.apache.commons.dbutils.handlers.ScalarHandler;
 import util.C3P0utils;
 
 import java.sql.SQLException;
@@ -102,6 +102,6 @@ public class AdminDaoImple implements AdminDao {
      */
     @Override
     public Integer selectSingerByNam(String singerName) throws SQLException {
-        return C3p0Utils.qr.query("select singer_id from singer where singer_name=?",new BeanHandler<Singer>(Singer.class),singerName);
+        return C3p0Utils.qr.query("select singer_id from singer where singer_name=?",new ScalarHandler<Long>()).intValue();
     }
 }
