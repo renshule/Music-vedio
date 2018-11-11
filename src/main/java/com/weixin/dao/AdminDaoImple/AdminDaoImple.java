@@ -102,6 +102,6 @@ public class AdminDaoImple implements AdminDao {
      */
     @Override
     public Integer selectSingerByNam(String singerName) throws SQLException {
-        return C3p0Utils.qr.query("select singer_id from singer where singer_name=?",new BeanHandler<Singer>(),singerName);
+        return C3p0Utils.qr.query("select singer_id from singer where singer_name=?",new BeanHandler<Singer>(Singer.class),singerName);
     }
 }

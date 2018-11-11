@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.List;
 
 @WebServlet("/AdminServlet/*")
@@ -38,9 +39,17 @@ public class AdminServlet extends HttpServlet {
         }else if("removeAllSing".equals(pathInfo)){
             removeAllSing(request,response);
         }else if("addSinger".equals(pathInfo)){
-            addSinger(request,response);
+            try {
+                addSinger(request,response);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }else if ("addSing".equals(pathInfo)){
-            addSing(request,response);
+            try {
+                addSing(request,response);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
     }
 
@@ -49,7 +58,7 @@ public class AdminServlet extends HttpServlet {
      * @param request
      * @param response
      */
-    private void addSing(HttpServletRequest request, HttpServletResponse response) {
+    private void addSing(HttpServletRequest request, HttpServletResponse response) throws SQLException {
         String name = request.getParameter("name");
         String pic = request.getParameter("pic");
         String singerName = request.getParameter("singerName");
@@ -80,7 +89,7 @@ public class AdminServlet extends HttpServlet {
      * @param request
      * @param response
      */
-    private void addSinger(HttpServletRequest request, HttpServletResponse response) {
+    private void addSinger(HttpServletRequest request, HttpServletResponse response)throws SQLException {
         String name = request.getParameter("name");
         String introduce = request.getParameter("introduce");
         System.out.println("aiaiaiiaiiaiiaiaiiiia");
