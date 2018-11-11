@@ -68,7 +68,7 @@
 <script type="text/javascript">
 
     $('#table').bootstrapTable({
-       url:'${pageContext.request.contextPath}/AdminServlet/User',
+       url:'${pageContext.request.contextPath}/UserServlet/listAll',
         pagination:true,
        /* pageSize:5,
         pageList:[5,7,'All'],
@@ -81,11 +81,11 @@
                 checkbox:true
             },
             {
-                field: 'userName',
+                field: 'u_name',
                 title: '用户名',
             },
             {
-                field: 'userPassword',
+                field: 'u_password',
                 title: '密码',
             },
         ]

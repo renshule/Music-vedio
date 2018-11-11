@@ -3,6 +3,7 @@ package com.weixin.dao;
 import com.weixin.bean.User;
 
 import java.sql.SQLException;
+import java.util.List;
 
 public interface UserDao {
     /**
@@ -13,4 +14,5 @@ public interface UserDao {
      * @throws SQLException
      */
     User login(String name)throws SQLException;
+    List<User> selectAll() throws SQLException;
 }

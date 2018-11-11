@@ -1,5 +1,10 @@
 package com.weixin.service;
 
-public interface UserService {
+import com.weixin.bean.User;
 
+import java.sql.SQLException;
+import java.util.List;
+
+public interface UserService {
+    List<User> selectAll() throws SQLException;
 }
