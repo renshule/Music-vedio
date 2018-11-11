@@ -12,45 +12,107 @@ import java.util.List;
 
 public class AdminServceimple implements AdminServce {
     AdminDao ad=new AdminDaoImple();
+
+    /**
+     *  歌曲分类列表展示
+     * @return 分类列表集合
+     * @throws SQLException
+     */
     @Override
     public List<Classify> ClassifyListAll() throws SQLException {
         return ad.classifyList();
     }
 
+    /**
+     *  歌手列表展示
+     * @return 返回歌手列表集合
+     * @throws SQLException
+     */
     @Override
     public List<Singer> SingerListAll() throws SQLException {
         return ad.singerListAll();
     }
 
+    /**
+     *  歌曲列表展示
+     * @return 歌曲列表集合
+     * @throws SQLException
+     */
     @Override
     public List<Sing> SingListAll() throws SQLException {
         return ad.singListAll();
     }
 
+    /**
+     *  根据id删除表中的某一列
+     * @param id
+     * @return
+     * @throws SQLException
+     */
     @Override
     public boolean deleteById(int id) throws SQLException {
         return ad.removeById(id);
     }
 
+    /**
+     *  删除所选
+     * @param idsArr
+     * @return 返回真假
+     * @throws SQLException
+     */
     @Override
     public boolean removeAllSings(String[] idsArr) throws SQLException {
         return ad.removeAllSings(idsArr);
     }
 
-
+    /**
+     *  添加歌手
+     * @param singer
+     * @return 返回是否添加成功
+     * @throws SQLException
+     */
     @Override
     public boolean insertSinger(Singer singer) throws SQLException {
         return ad.insertSinger(singer);
     }
 
+    /**
+     *  添加歌曲
+     * @param sing
+     * @return 返回是否添加成功
+     * @throws SQLException
+     */
     @Override
     public boolean insertSing(Sing sing) throws SQLException {
         return ad.insertSing(sing);
     }
 
+    /**
+     *  歌曲添加列表中的一个部分判断，判断是否存在这个歌手
+     * @param singerName
+     * @return 返回真假值
+     * @throws SQLException
+     */
     @Override
-    public Integer selectSingerByName(String singerName) throws SQLException {
-        return ad.selectSingerByNam(singerName);
+    public boolean selectSingerByName(String singerName) throws SQLException {
+        Singer singer = ad.selectSingerByNam(singerName);
+        if(singer==null){
+            return false;
+        }else {
+            return true;
+        }
+    }
+
+    /**
+     *  添加歌曲列表中的一部分 根据名称获取到歌手的id
+     * @param singerName
+     * @return
+     * @throws SQLException
+     */
+    @Override
+    public Integer selectSingerByNames(String singerName) throws SQLException{
+        Integer singerId = ad.selectSingerByNam(singerName).getSingerId();
+        return singerId;
     }
 
 }

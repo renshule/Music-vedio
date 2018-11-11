@@ -53,21 +53,29 @@ public class AdminServlet extends HttpServlet {
         String name = request.getParameter("name");
         String pic = request.getParameter("pic");
         String singerName = request.getParameter("singerName");
-        Integer singerId=as.selectSingerByName(singerName);
         int gender =Integer.valueOf(request.getParameter("gender"));
-        
-        Sing sing=new Sing(null,name,pic,null,gender,null,null);
         try {
-            boolean b = as.insertSing(sing);
-            System.out.println(b);
-            if (b) {
-                System.out.println("1");
-                request.setAttribute("msg", "添加成功");
+            boolean bo=as.selectSingerByName(singerName);
+            System.out.println(bo);
+            if(bo){
+                Integer singerId=as.selectSingerByNames(singerName);
+                Sing sing = new Sing(null, name, pic, null, gender, singerId, singerName);
+                boolean b = as.insertSing(sing);
+                System.out.println(b);
+                if (b) {
+                    System.out.println("1");
+                    request.setAttribute("msg", "添加成功");
 
-            } else {
-                System.out.println("0");
-                request.setAttribute("msg", "添加失败");
+                } else {
+                    System.out.println("0");
+                    request.setAttribute("msg", "添加失败");
+                }
+
+            }else{
+                System.out.println("*********************");
+                request.setAttribute("msg", "没有此歌手，请先添加歌手");
             }
+
             request.getRequestDispatcher("/music/singAdd.jsp").forward(request, response);
         } catch (Exception e) {
             e.printStackTrace();
