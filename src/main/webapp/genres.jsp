@@ -2,7 +2,6 @@
 <!DOCTYPE html>
 <html lang="en" class="app">
 <head>  
-  <meta charset="utf-8" />
   <title>Musik | Web Application</title>
   <meta name="description" content="app, web app, responsive, admin dashboard, admin, flat, flat ui, ui kit, off screen nav" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
@@ -206,71 +205,18 @@
                           All
                         </a>
                         <a href="genres.html" class="list-group-item active">
-                          acoustic
+                          流行
                         </a>
                         <a href="genres.html" class="list-group-item">
-                          ambient
+                          民谣
                         </a>
                         <a href="genres.html" class="list-group-item">
-                          blues
+                          欧美
                         </a>
                         <a href="genres.html" class="list-group-item">
-                          classical
+                          嘻哈
                         </a>
-                        <a href="genres.html" class="list-group-item">
-                          country
-                        </a>
-                        <a href="genres.html" class="list-group-item">
-                          electronic
-                        </a>
-                        <a href="genres.html" class="list-group-item">
-                          emo
-                        </a>
-                        <a href="genres.html" class="list-group-item">
-                          folk
-                        </a>
-                        <a href="genres.html" class="list-group-item">
-                          hardcore
-                        </a>
-                        <a href="genres.html" class="list-group-item">
-                          hip hop
-                        </a>
-                        <a href="genres.html" class="list-group-item">
-                          indie
-                        </a>
-                        <a href="genres.html" class="list-group-item">
-                          jazz
-                        </a>
-                        <a href="genres.html" class="list-group-item">
-                          latin
-                        </a>
-                        <a href="genres.html" class="list-group-item">
-                          metal
-                        </a>
-                        <a href="genres.html" class="list-group-item">
-                          pop
-                        </a>
-                        <a href="genres.html" class="list-group-item">
-                          pop punk
-                        </a>
-                        <a href="genres.html" class="list-group-item">
-                          punk
-                        </a>
-                        <a href="genres.html" class="list-group-item">
-                          reggae
-                        </a>
-                        <a href="genres.html" class="list-group-item">
-                          rnb
-                        </a>
-                        <a href="genres.html" class="list-group-item">
-                          rock
-                        </a>
-                        <a href="genres.html" class="list-group-item">
-                          soul
-                        </a>
-                        <a href="genres.html" class="list-group-item">
-                          world
-                        </a>
+
                       </div>
                     </section>
                   </section>
