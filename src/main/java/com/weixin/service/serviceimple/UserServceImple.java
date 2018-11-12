@@ -1,5 +1,6 @@
 package com.weixin.service.serviceimple;
 
+import com.weixin.bean.Sing;
 import com.weixin.bean.User;
 import com.weixin.dao.UserDao;
 import com.weixin.dao.UserDaoImple.UserDaoImple;
@@ -15,5 +16,20 @@ public class UserServceImple implements UserService {
     public List<User> selectAll() throws SQLException {
         return userDao.selectAll();
 
+    }
+
+    /**
+     * 页面歌曲展示
+     * @return
+     * @throws SQLException
+     */
+    @Override
+    public List<Sing> singListAll() throws SQLException {
+        return userDao.selectLeftAll();
+    }
+
+    @Override
+    public List<Sing> singListAll1() throws SQLException {
+        return userDao.selectmidAll();
     }
 }

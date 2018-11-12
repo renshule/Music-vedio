@@ -5,13 +5,13 @@
   <title>Musik | Web Application</title>
   <meta name="description" content="app, web app, responsive, admin dashboard, admin, flat, flat ui, ui kit, off screen nav" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-  <link rel="stylesheet" href="js/jPlayer/jplayer.flat.css" type="text/css" />
-  <link rel="stylesheet" href="css/bootstrap.css" type="text/css" />
-  <link rel="stylesheet" href="css/animate.css" type="text/css" />
-  <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css" />
-  <link rel="stylesheet" href="css/simple-line-icons.css" type="text/css" />
-  <link rel="stylesheet" href="css/font.css" type="text/css" />
-  <link rel="stylesheet" href="css/app.css" type="text/css" />  
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/js/jPlayer/jplayer.flat.css" type="text/css" />
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.css" type="text/css" />
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/css/animate.css" type="text/css" />
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/css/font-awesome.min.css" type="text/css" />
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/css/simple-line-icons.css" type="text/css" />
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/css/font.css" type="text/css" />
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/css/app.css" type="text/css" />
     <!--[if lt IE 9]>
     <script src="js/ie/html5shiv.js"></script>
     <script src="js/ie/respond.min.js"></script>
@@ -57,7 +57,7 @@
           <li class="dropdown">
             <a href="#" class="dropdown-toggle bg clear" data-toggle="dropdown">
               <span class="thumb-sm avatar pull-right m-t-n-sm m-b-n-sm m-l-sm">
-                <img src="images/a0.png" alt="...">
+                <img src="${pageContext.request.contextPath}/images/a0.png" alt="...">
               </span>
               John.Smith <b class="caret"></b>
             </a>
@@ -117,7 +117,7 @@
                   <div class="dropdown dropup wrapper-sm clearfix">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                       <span class="thumb-sm avatar pull-left m-l-xs">                        
-                        <img src="images/a3.png" class="dker" alt="...">
+                        <img src="${pageContext.request.contextPath}/images/a3.png" class="dker" alt="...">
                         <i class="on b-black"></i>
                       </span>
                       <span class="hidden-nav-xs clear">
@@ -178,7 +178,7 @@
                         <span class="pull-right text-sm">101,400 <br>Followers</span>
                         <span class="h2 font-thin">Soph Ashe</span>
                       </div>
-                      <img class="img-full" src="images/m43.jpg" alt="...">
+                      <img class="img-full" src="${pageContext.request.contextPath}/images/m43.jpg" alt="...">
                     </div>
 					<!-- 左侧歌曲列表开始-->
                     <ul class="list-group list-group-lg no-radius no-border no-bg m-t-n-xxs m-b-none auto">
@@ -340,7 +340,7 @@
                         </a>
                         <a href="#" class="pull-left thumb-sm m-r">
 							<!-- 歌曲左侧图片-->
-                          <img src="images/m0.jpg" alt="...">
+                          <img src="${pageContext.request.contextPath}/images/m0.jpg" alt="...">
                         </a>
                         <a class="clear" href="#">
                           <span class="block text-ellipsis">Little Town</span>
@@ -353,7 +353,7 @@
                           <i class="icon-control-pause text-active"></i>
                         </a>
                         <a href="#" class="pull-left thumb-sm m-r">
-                          <img src="images/a1.png" alt="...">
+                          <img src="${pageContext.request.contextPath}/images/a1.png" alt="...">
                         </a>
                         <a class="clear" href="#">
                           <span class="block text-ellipsis">Get lacinia odio sem nec elit</span>
@@ -366,7 +366,7 @@
                           <i class="icon-control-pause text-active"></i>
                         </a>
                         <a href="#" class="pull-left thumb-sm m-r">
-                          <img src="images/a2.png" alt="...">
+                          <img src="${pageContext.request.contextPath}/images/a2.png" alt="...">
                         </a>
                         <a class="clear" href="#">
                           <span class="block text-ellipsis">Donec sed odio du</span>
@@ -379,7 +379,7 @@
                           <i class="icon-control-pause text-active"></i>
                         </a>
                         <a href="#" class="pull-left thumb-sm m-r">
-                          <img src="images/a3.png" alt="...">
+                          <img src="${pageContext.request.contextPath}/images/a3.png" alt="...">
                         </a>
                         <a class="clear" href="#">
                           <span class="block text-ellipsis">Curabitur blandit tempu</span>
@@ -392,7 +392,7 @@
                           <i class="icon-control-pause text-active"></i>
                         </a>
                         <a href="#" class="pull-left thumb-sm m-r">
-                          <img src="images/a4.png" alt="...">
+                          <img src="${pageContext.request.contextPath}/images/a4.png" alt="...">
                         </a>
                         <a class="clear" href="#">
                           <span class="block text-ellipsis">Urna mollis ornare vel eu leo</span>
@@ -405,7 +405,7 @@
                           <i class="icon-control-pause text-active"></i>
                         </a>
                         <a href="#" class="pull-left thumb-sm m-r">
-                          <img src="images/a5.png" alt="...">
+                          <img src="${pageContext.request.contextPath}/images/a5.png" alt="...">
                         </a>
                         <a class="clear" href="#">
                           <span class="block text-ellipsis">Faucibus dolor auctor</span>
@@ -418,7 +418,7 @@
                           <i class="icon-control-pause text-active"></i>
                         </a>
                         <a href="#" class="pull-left thumb-sm m-r">
-                          <img src="images/a6.png" alt="...">
+                          <img src="${pageContext.request.contextPath}/images/a6.png" alt="...">
                         </a>
                         <a class="clear" href="#">
                           <span class="block text-ellipsis">Praesent commodo cursus magn</span>
@@ -431,7 +431,7 @@
                           <i class="icon-control-pause text-active"></i>
                         </a>
                         <a href="#" class="pull-left thumb-sm m-r">
-                          <img src="images/a7.png" alt="...">
+                          <img src="${pageContext.request.contextPath}/images/a7.png" alt="...">
                         </a>
                         <a class="clear" href="#">
                           <span class="block text-ellipsis">Vestibulum id</span>
@@ -444,7 +444,7 @@
                           <i class="icon-control-pause text-active"></i>
                         </a>
                         <a href="#" class="pull-left thumb-sm m-r">
-                          <img src="images/a8.png" alt="...">
+                          <img src="${pageContext.request.contextPath}/images/a8.png" alt="...">
                         </a>
                         <a class="clear" href="#">
                           <span class="block text-ellipsis">Blandit tempu</span>
@@ -457,7 +457,7 @@
                           <i class="icon-control-pause text-active"></i>
                         </a>
                         <a href="#" class="pull-left thumb-sm m-r">
-                          <img src="images/a9.png" alt="...">
+                          <img src="${pageContext.request.contextPath}/images/a9.png" alt="...">
                         </a>
                         <a class="clear" href="#">
                           <span class="block text-ellipsis">Vestibulum ullamcorpe quis malesuada augue mco rpe</span>
@@ -470,7 +470,7 @@
                           <i class="icon-control-pause text-active"></i>
                         </a>
                         <a href="#" class="pull-left thumb-sm m-r">
-                          <img src="images/a10.png" alt="...">
+                          <img src="${pageContext.request.contextPath}/images/a10.png" alt="...">
                         </a>
                         <a class="clear" href="#">
                           <span class="block text-ellipsis">Natis ipsum ac feugiat</span>
@@ -483,7 +483,7 @@
                           <i class="icon-control-pause text-active"></i>
                         </a>
                         <a href="#" class="pull-left thumb-sm m-r">
-                          <img src="images/a0.png" alt="...">
+                          <img src="${pageContext.request.contextPath}/images/a0.png" alt="...">
                         </a>
                         <a class="clear" href="#">
                           <span class="block text-ellipsis">Sec condimentum au</span>
@@ -506,7 +506,7 @@
                           <span class="bottom wrapper-md block">- <i class="icon-arrow-right i-lg pull-right"></i></span>
                         </a>
                         <a href="#">
-                          <img class="img-full" src="images/m40.jpg" alt="...">
+                          <img class="img-full" src="${pageContext.request.contextPath}/images/m40.jpg" alt="...">
                         </a>
                       </div>
                       <div class="item pos-rlt">
@@ -516,7 +516,7 @@
                           <span class="bottom wrapper-md block"><i class="icon-arrow-right i-lg pull-left"></i> -</span>
                         </a>
                         <a href="#">
-                          <img class="img-full" src="images/m41.jpg" alt="...">
+                          <img class="img-full" src="${pageContext.request.contextPath}/images/m41.jpg" alt="...">
                         </a>
                       </div>
                       <div class="item pos-rlt">
@@ -526,7 +526,7 @@
                           <span class="bottom wrapper-md block">- <i class="icon-arrow-right i-lg pull-right"></i></span>
                         </a>
                         <a href="#">
-                          <img class="img-full" src="images/m42.jpg" alt="...">
+                          <img class="img-full" src="${pageContext.request.contextPath}/images/m42.jpg" alt="...">
                         </a>
                       </div>
                       <div class="item pos-rlt">
@@ -536,7 +536,7 @@
                           <span class="bottom wrapper-md block"><i class="icon-arrow-right i-lg pull-left"></i> -</span>
                         </a>
                         <a href="#">
-                          <img class="img-full" src="images/m44.jpg" alt="...">
+                          <img class="img-full" src="${pageContext.request.contextPath}/images/m44.jpg" alt="...">
                         </a>
                       </div>
                       <div class="item pos-rlt">
@@ -546,7 +546,7 @@
                           <span class="bottom wrapper-md block">- <i class="icon-arrow-right i-lg pull-right"></i></span>
                         </a>
                         <a href="#">
-                          <img class="img-full" src="images/m45.jpg" alt="...">
+                          <img class="img-full" src="${pageContext.request.contextPath}/images/m45.jpg" alt="...">
                         </a>
                       </div>
                     </div>
@@ -630,15 +630,15 @@
       </section>
     </section>    
   </section>
-  <script src="js/jquery.min.js"></script>
+  <script src="${pageContext.request.contextPath}/js/jquery.min.js"></script>
   <!-- Bootstrap -->
-  <script src="js/bootstrap.js"></script>
+  <script src="${pageContext.request.contextPath}/js/bootstrap.js"></script>
   <!-- App -->
-  <script src="js/app.js"></script>  
-  <script src="js/slimscroll/jquery.slimscroll.min.js"></script>
-    <script src="js/app.plugin.js"></script>
-  <script type="text/javascript" src="js/jPlayer/jquery.jplayer.min.js"></script>
-  <script type="text/javascript" src="js/jPlayer/add-on/jplayer.playlist.min.js"></script>
-  <script type="text/javascript" src="js/jPlayer/demo.js"></script>
+  <script src="${pageContext.request.contextPath}/app.js"></script>
+  <script src="${pageContext.request.contextPath}/js/slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="${pageContext.request.contextPath}/js/app.plugin.js"></script>
+  <script type="text/javascript" src="${pageContext.request.contextPath}/js/jPlayer/jquery.jplayer.min.js"></script>
+  <script type="text/javascript" src="${pageContext.request.contextPath}/js/jPlayer/add-on/jplayer.playlist.min.js"></script>
+  <script type="text/javascript" src="${pageContext.request.contextPath}/js/jPlayer/demo.js"></script>
 </body>
 </html>

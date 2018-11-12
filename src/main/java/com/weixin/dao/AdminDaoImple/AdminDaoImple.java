@@ -91,7 +91,7 @@ public class AdminDaoImple implements AdminDao {
      */
     @Override
     public boolean insertSing(Sing sing) throws SQLException {
-        return C3p0Utils.qr.update("insert into sing values(null,?,?,null,?,null)",sing.getSingName(),sing.getSingPic(),sing.getCId())>0;
+        return C3p0Utils.qr.update("insert into sing values(null,?,?,null,?,?)",sing.getSingName(),sing.getSingPic(),sing.getCId(),sing.getSingerId())>0;
     }
 
     /**
@@ -102,7 +102,6 @@ public class AdminDaoImple implements AdminDao {
      */
     @Override
     public Singer selectSingerByNam(String singerName) throws SQLException {
-        return C3p0Utils.qr.query("select * from singer where singer_name=?",new BeanHandler<>(Singer.class),singerName);
+        return C3p0Utils.qr.query("select singer_id singerId,singer_name singerName from singer where singer_name=?",new BeanHandler<>(Singer.class),singerName);
     }
-
 }

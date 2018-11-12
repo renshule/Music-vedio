@@ -25,6 +25,7 @@
             <div class="ibox float-e-margins">
                 <div class="ibox-title">
                     <h5>基本</h5>
+
                     <div class="ibox-tools">
                         <a class="collapse-link">
                             <i class="fa fa-chevron-up"></i>
@@ -42,6 +43,7 @@
                             <i class="fa fa-times"></i>
                         </a>
                     </div>
+
                 </div>
                 <div class="ibox-content">
 
@@ -49,6 +51,7 @@
                     <div class="btn btn-warning" id="removeAll">删除所选</div>
                     <a  class="btn btn-success" href="${pageContext.request.contextPath}/music/singAdd.jsp">添加歌曲</a>
                 </div>
+
             </div>
         </div>
 

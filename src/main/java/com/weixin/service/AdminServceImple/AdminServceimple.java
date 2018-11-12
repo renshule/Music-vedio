@@ -112,6 +112,7 @@ public class AdminServceimple implements AdminServce {
     @Override
     public Integer selectSingerByNames(String singerName) throws SQLException{
         Integer singerId = ad.selectSingerByNam(singerName).getSingerId();
+        System.out.println(singerId);
         return singerId;
     }
 

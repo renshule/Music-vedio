@@ -1,5 +1,6 @@
 package com.weixin.dao;
 
+import com.weixin.bean.Sing;
 import com.weixin.bean.User;
 
 import java.sql.SQLException;
@@ -15,4 +16,13 @@ public interface UserDao {
      */
     User login(String name)throws SQLException;
     List<User> selectAll() throws SQLException;
+
+    /**
+     * 页面歌曲展示
+     * @return
+     * @throws SQLException
+     */
+    List<Sing> selectLeftAll() throws SQLException;
+
+    List<Sing> selectmidAll() throws SQLException;
 }
