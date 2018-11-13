@@ -44,12 +44,16 @@ public class UserServlet extends HttpServlet {
     private void selectLeftAll(HttpServletRequest request, HttpServletResponse response) {
         System.out.println("+++++++++++++++++++++++++++++++++");
         try {
+            //左侧页面内容
             List<Sing> singList=userService.singListAll();
             System.out.println(singList);
             request.setAttribute("singList",singList);
+            //中间页面内容
             List<Sing> singList1=userService.singListAll1();
             System.out.println(singList1);
             request.setAttribute("singList1",singList1);
+            //右边页面内容
+
             request.getRequestDispatcher("/listen1.jsp").forward(request,response);
         } catch (Exception e) {
             e.printStackTrace();
