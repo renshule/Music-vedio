@@ -64,13 +64,14 @@ public class AdminServlet extends HttpServlet {
         String singerName = request.getParameter("singerName");
         System.out.println(singerName);
         int gender =Integer.valueOf(request.getParameter("gender"));
+        String audio = request.getParameter("audio");
         try {
             boolean bo=as.selectSingerByName(singerName);
             System.out.println(bo);
             if(bo){
                 Integer singerId=as.selectSingerByNames(singerName);
                 System.out.println(singerId);
-                Sing sing = new Sing(null, name, pic, null, gender, singerId, singerName);
+                Sing sing = new Sing(null, name, pic, audio, gender, singerId, singerName);
                 System.out.println(sing);
                 boolean b = as.insertSing(sing);
                 System.out.println(b);

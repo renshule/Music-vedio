@@ -7,13 +7,13 @@ $(document).ready(function(){
     {
       title:"Busted Chump",
       artist:"ADG3",
-      mp3:"http://flatfull.com/themes/assets/musics/adg3com_bustedchump.mp3",
+      mp3:"http://localhost:8080/a.mp3",
       poster: "images/m0.jpg"
     },
     {
       title:"Chucked Knuckles",
       artist:"3studios",
-      mp3:"http://flatfull.com/themes/assets/musics/adg3com_chuckedknuckles.mp3",
+      mp3:"http://localhost:8080/a.mp3",
       poster: "images/m0.jpg"
     },
     {

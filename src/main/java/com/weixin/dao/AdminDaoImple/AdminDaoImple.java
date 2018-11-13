@@ -91,7 +91,7 @@ public class AdminDaoImple implements AdminDao {
      */
     @Override
     public boolean insertSing(Sing sing) throws SQLException {
-        return C3p0Utils.qr.update("insert into sing values(null,?,?,null,?,?)",sing.getSingName(),sing.getSingPic(),sing.getCId(),sing.getSingerId())>0;
+        return C3p0Utils.qr.update("insert into sing values(null,?,?,?,?,?)",sing.getSingName(),sing.getSingPic(),sing.getSingUrl(),sing.getCId(),sing.getSingerId())>0;
     }
 
     /**

@@ -55,7 +55,14 @@
                                     <div  class="preview"></div>           <%--(预览图)--%>
                                 </div>
                             </div>
-
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label" type="text" name="pic">图片上传：</label>
+                                <div class="col-sm-8">
+                                    <input type="text" name="audio"/><%--(回填表单,用于提交表单的音频数据库存储)--%>
+                                    <div  class="audioUpload"></div>				<%--(上传控件)--%>
+                                    <div  class="preview"></div>           <%--(预览图)--%>
+                                </div>
+                            </div>
                             <div class="form-group">
                                 <label class="col-sm-3 control-label" name="gender">类别：</label>
                                 <div class="col-sm-8">
@@ -117,7 +124,7 @@
 					showUploadedPercent:true,//是否实时显示上传的百分比，如20%
 					showUploadedSize:true,
 					removeTimeout:9999999,
-					uploader:'${pageContext.request.contextPath}/UploadServlet',
+					uploader:'${pageContext.request.contextPath}/UploadServlet/pic',
 					onUploadComplete:function(file,path,response){
 						 //获得回填数据
 						src = "${pageContext.request.contextPath}"+path;
@@ -134,6 +141,34 @@
 			}
 			aa($(this));
 		});
+    $('.audioUpload').each(function(){
+        var aa = function(obj){
+            obj.Huploadify({
+                auto:true,
+                fileTypeExts:'*.mp3',
+                multi:false,
+                //formData:{name:'image0'},
+                fileSizeLimit:999999,
+                showUploadedPercent:true,//是否实时显示上传的百分比，如20%
+                showUploadedSize:true,
+                removeTimeout:9999999,
+                uploader:'${pageContext.request.contextPath}/UploadServlet/audio',
+                onUploadComplete:function(file,path,response){
+                    //获得回填数据
+                    src = "${pageContext.request.contextPath}"+path;
+                    //此处obj为上传控件  ,代表每个imageUpload
+                    //回填表单
+                    obj.prev().val(path);
+                    //填充预览图
+                    obj.next().html("<img src='"+src+"'/>");
+                    setTimeout(function(){
+                        obj.find('.uploadify-queue-item').html('');
+                    },1000);
+                }
+            });
+        }
+        aa($(this));
+    });
    <c:if test="${msg!=null}">
    layer.ready(function () {
        layer.msg('${msg}'/*,{icon:1}*/);
