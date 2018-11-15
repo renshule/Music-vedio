@@ -1,6 +1,7 @@
 package com.weixin.servlet;
 
 import com.google.gson.Gson;
+import com.weixin.bean.Ad;
 import com.weixin.bean.Classify;
 import com.weixin.bean.Sing;
 import com.weixin.bean.Singer;
@@ -50,7 +51,229 @@ public class AdminServlet extends HttpServlet {
             } catch (SQLException e) {
                 e.printStackTrace();
             }
+        }else if("selectAllAd".equals(pathInfo)){
+            selectAllAd(request,response);
+        }else if("addAd".equals(pathInfo)){
+            addAd(request,response);
+        }else if("updateById".equals(pathInfo)){
+            updateById(request,response);
+        }else if("removeByIdAd".equals(pathInfo)){
+            removeByIdAd(request,response);
+        }else if("updateByIdSinger".equals(pathInfo)){
+            updateByIdSinger(request,response);
+        }else if("removeAllAd".equals(pathInfo)){
+            removeAllAd(request,response);
+        }else if("updateByIdSing".equals(pathInfo)){
+            updateByIdSing(request,response);
+        }else if ("updateByIdClassify".equals(pathInfo)){
+            updateByIdClassify(request,response);
         }
+    }
+
+    /**
+     * 分类列表修改
+     * @param request
+     * @param response
+     */
+    private void updateByIdClassify(HttpServletRequest request, HttpServletResponse response) {
+        String name = request.getParameter("name");
+        int id = Integer.valueOf(request.getParameter("id"));
+        Classify classify=new Classify(id,name);
+        try {
+            boolean b=as.updateClassify(classify);
+            if(b){
+                response.getWriter().print("1");
+            }else{
+                response.getWriter().print("");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    /**
+     * 歌曲修改
+     * @param request
+     * @param response
+     */
+    private void updateByIdSing(HttpServletRequest request, HttpServletResponse response) {
+        int id = Integer.valueOf(request.getParameter("id"));
+        String name = request.getParameter("name");
+        String pic = request.getParameter("pic");
+        int gender =Integer.valueOf(request.getParameter("gender"));
+        String audio = request.getParameter("audio");
+        String singerName = request.getParameter("singerName");
+        try {
+            boolean b=as.selectSingerByName(singerName);
+            System.out.println(b);
+            String cName=as.selectSingByC(gender);
+            if(b){
+                Integer singerId=as.selectSingerByNames(singerName);
+                System.out.println(singerId);
+                Sing sing = new Sing(id, name, pic, audio, gender,cName, singerId, singerName);
+                System.out.println(sing);
+                boolean bo = as.updateSing(sing);
+                System.out.println(bo);
+                if (bo) {
+                    response.getWriter().print("1");
+
+                } else {
+                    response.getWriter().print("");
+
+                }
+
+            }else{
+                System.out.println("*********************");
+                request.setAttribute("msg", "没有此歌手，请先添加歌手");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * 广告页面多选删除
+     * @param request
+     * @param response
+     */
+    private void removeAllAd(HttpServletRequest request, HttpServletResponse response) {
+        String ids = request.getParameter("ids");
+        String[] idsArr = ids.split(",");
+        try {
+            boolean bo = as.removeAllAd(idsArr);
+            if (bo) {
+                response.getWriter().print("1");
+            } else {
+                response.getWriter().print("");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * 修改歌手表
+     * @param request
+     * @param response
+     */
+    private void updateByIdSinger(HttpServletRequest request, HttpServletResponse response) {
+        int id = Integer.valueOf(request.getParameter("id"));
+        String name = request.getParameter("name");
+        String intro = request.getParameter("intro");
+        Singer singer=new Singer(id,name,intro);
+        try {
+            boolean b=as.updateSinger(singer);
+            if(b){
+                //删除成功回复1
+                response.getWriter().print("1");
+
+
+            }else{
+                //删除失败回复空字符串
+                response.getWriter().print("");
+
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * 广告页面单选删除
+     * @param request
+     * @param response
+     */
+    private void removeByIdAd(HttpServletRequest request, HttpServletResponse response) {
+        int id=Integer.valueOf(request.getParameter("ad_id"));
+        try {
+            boolean bo=as.deleteByIdAd(id);
+          //判断是否删除成功
+            if(bo){
+                //删除成功回复1
+                response.getWriter().print("1");
+
+
+            }else{
+                //删除失败回复空字符串
+                response.getWriter().print("");
+
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * 广告页面修改
+     * @param request
+     * @param response
+     */
+    private void updateById(HttpServletRequest request, HttpServletResponse response) {
+        int id = Integer.valueOf(request.getParameter("id"));
+        String name = request.getParameter("name");
+        String pic = request.getParameter("pic");
+        Integer hot = Integer.valueOf(request.getParameter("hot"));
+        Ad add=new Ad(id,pic,hot,name);
+        try {
+            boolean b=as.updateAd(add);
+            if(b){
+                response.getWriter().print("1");
+            }else{
+                response.getWriter().print("");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * 广告添加
+     * @param request
+     * @param response
+     */
+    private void addAd(HttpServletRequest request, HttpServletResponse response) {
+        String name = request.getParameter("name");
+        String pic = request.getParameter("pic");
+        Integer hot = Integer.valueOf(request.getParameter("hot"));
+        Ad add=new Ad(null,pic,hot,name);
+        try {
+            boolean b=as.addAd(add);
+            System.out.println(b);
+            if (b) {
+
+                request.setAttribute("msg", "添加成功");
+
+            } else {
+
+                request.setAttribute("msg", "添加失败");
+            }
+            request.getRequestDispatcher("/music/adAdd.jsp").forward(request, response);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * 广告页面展示
+     * @param request
+     * @param response
+     */
+    private void selectAllAd(HttpServletRequest request, HttpServletResponse response) {
+        System.out.println("+++++++++++++++++++++++++++++++++");
+        try {
+            List<Ad> adList=as.adAll();
+            System.out.println(adList);
+            Gson gson = new Gson();
+            System.out.println(gson);
+            System.out.println("****************************");
+            String s = gson.toJson(adList);
+            response.getWriter().print(s);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }
 
     /**
@@ -70,8 +293,9 @@ public class AdminServlet extends HttpServlet {
             System.out.println(bo);
             if(bo){
                 Integer singerId=as.selectSingerByNames(singerName);
+                String cName=as.selectSingByC(gender);
                 System.out.println(singerId);
-                Sing sing = new Sing(null, name, pic, audio, gender, singerId, singerName);
+                Sing sing = new Sing(null, name, pic, audio, gender,cName, singerId, singerName);
                 System.out.println(sing);
                 boolean b = as.insertSing(sing);
                 System.out.println(b);
@@ -192,31 +416,7 @@ public class AdminServlet extends HttpServlet {
             e.printStackTrace();
         }
     }
-        /*else if("User".equals(pathInfo)){
-            User(request,response);
-        }
-    }
 
-
-    /**
-     * 用户列表展示
-     * @param request
-     * @param response
-     */
- /*   private void User(HttpServletRequest request, HttpServletResponse response) {
-        try {
-            System.out.println("+++++++++++++++++++++++++++++++++");
-            List<Singer> SingerList=as.SingerListAll();
-            System.out.println(SingerList);
-            Gson gson = new Gson();
-            System.out.println(gson);
-            System.out.println("****************************");
-            String s = gson.toJson(SingerList);
-            response.getWriter().print(s);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }*/
 
     /**
      * 歌手列表展示

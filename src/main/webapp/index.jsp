@@ -59,13 +59,13 @@
                     </a>
                     <ul class="nav nav-second-level">
                         <li>
-                            <a class="J_menuItem" href="${pageContext.request.contextPath}/music/classify.jsp" data-index="0">歌曲分类</a>
+                            <a class="J_menuItem" href="${pageContext.request.contextPath}/music/classify.jsp" data-index="0">分类列表</a>
                         </li>
                         <li>
                             <a class="J_menuItem" href="${pageContext.request.contextPath}/music/singer.jsp">歌手列表</a>
                         </li>
                         <li>
-                            <a class="J_menuItem" href="${pageContext.request.contextPath}/music/singform.jsp">广告列表</a>
+                            <a class="J_menuItem" href="${pageContext.request.contextPath}/music/ad.jsp">广告列表</a>
                         </li>
                         <li>
                             <a class="J_menuItem" href="${pageContext.request.contextPath}/music/sing.jsp">歌曲列表</a>
@@ -86,8 +86,7 @@
     <div id="page-wrapper" class="gray-bg dashbard-1">
         <div class="row border-bottom">
             <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
-                <div class="navbar-header"><a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
-                </div>
+
                 <ul class="nav navbar-top-links navbar-right">
 
                     <li class="dropdown hidden-xs">

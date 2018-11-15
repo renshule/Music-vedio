@@ -39,9 +39,9 @@
                         </div>
                     </div>
                     <div class="ibox-content">
-                        <form class="form-horizontal m-t" action="${pageContext.request.contextPath}/AdminServlet/addSing">
+                        <form class="form-horizontal m-t" action="${pageContext.request.contextPath}/AdminServlet/addAd">
                             <div class="form-group">
-                                <label class="col-sm-3 control-label" type="text" name="name">歌曲名称：</label>
+                                <label class="col-sm-3 control-label" type="text" name="name">广告简介：</label>
                                 <div class="col-sm-8">
                                     <input name="name" minlength="2" type="text" class="form-control" >
                                 </div>
@@ -56,48 +56,21 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-3 control-label" type="text" name="audio">音频上传：</label>
-                                <div class="col-sm-8">
-                                    <input type="text" name="audio"/><%--(回填表单,用于提交表单的音频数据库存储)--%>
-                                    <div  class="audioUpload"></div>				<%--(上传控件)--%>
-                                    <div  class="preview"></div>           <%--(预览图)--%>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label" name="gender">类别：</label>
+                                <label class="col-sm-3 control-label" name="hot">是否热门：</label>
                                 <div class="col-sm-8">
                                     <div class="radio">
                                         <label>
-                                            <input type="radio" name="gender" checked value="1" >
-                                            流行
+                                            <input type="radio" name="hot" checked value="1" >
+                                            热门
                                         </label>
                                     </div>
                                     <div class="radio">
                                         <label>
-                                            <input type="radio" name="gender"  value="2">
-                                            民谣
-                                        </label>
-                                    </div>
-                                    <div class="radio">
-                                        <label>
-                                            <input type="radio" name="gender"  value="3">
-                                            欧美
-                                        </label>
-                                    </div>
-                                    <div class="radio">
-                                        <label>
-                                            <input type="radio" name="gender"  value="4">
-                                            嘻哈
+                                            <input type="radio" name="hot"  value="0">
+                                            不热门
                                         </label>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label" type="text" name="singerName">歌手名称：</label>
-                                <div class="col-sm-8">
-                                    <input name="singerName" minlength="2" type="text" class="form-control" >
-                                </div>
-
                             </div>
                             <div class="form-group">
                                 <div class="col-sm-4 col-sm-offset-3">

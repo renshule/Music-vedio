@@ -44,10 +44,8 @@
                     </div>
                 </div>
                 <div class="ibox-content">
-
-                    <table id="table"></table>
                     <div class="btn btn-warning" id="removeAll">删除所选</div>
-
+                    <table id="table"></table>
                 </div>
             </div>
         </div>

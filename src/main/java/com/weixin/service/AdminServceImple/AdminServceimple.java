@@ -1,5 +1,6 @@
 package com.weixin.servce.servceimple;
 
+import com.weixin.bean.Ad;
 import com.weixin.bean.Classify;
 import com.weixin.bean.Sing;
 import com.weixin.bean.Singer;
@@ -114,6 +115,98 @@ public class AdminServceimple implements AdminServce {
         Integer singerId = ad.selectSingerByNam(singerName).getSingerId();
         System.out.println(singerId);
         return singerId;
+    }
+
+    /**
+     * 广告表展示
+     * @return
+     * @throws SQLException
+     */
+    @Override
+    public List<Ad> adAll() throws SQLException {
+        return ad.adSelectAll();
+    }
+
+    /**
+     * 广告表添加
+     * @param add
+     * @return
+     * @throws SQLException
+     */
+    @Override
+    public boolean addAd(Ad add) throws SQLException {
+        return ad.insertAd(add);
+    }
+
+    /**
+     *广告表修改
+     * @param add
+     * @return
+     * @throws SQLException
+     */
+    @Override
+    public boolean updateAd(Ad add) throws SQLException {
+        return ad.updateAdById(add);
+    }
+
+    /**
+     *广告表删除
+     * @param id
+     * @return
+     * @throws SQLException
+     */
+    @Override
+    public boolean deleteByIdAd(int id) throws SQLException {
+        return ad.removeByIdAd(id);
+    }
+
+    /**
+     * 歌手表修改
+     * @param singer
+     * @return
+     * @throws SQLException
+     */
+    @Override
+    public boolean updateSinger(Singer singer) throws SQLException {
+        return ad.updateSinger(singer);
+    }
+
+    /**
+     * 广告列表删除所选
+     * @param idsArr
+     * @return
+     * @throws SQLException
+     */
+    @Override
+    public boolean removeAllAd(String[] idsArr) throws SQLException {
+        return ad.removeAllAd(idsArr);
+    }
+
+    /**
+     * 修改歌曲列表
+     * @param sing
+     * @return
+     * @throws SQLException
+     */
+    @Override
+    public boolean updateSing(Sing sing) throws SQLException {
+        return ad.updateByIdSing(sing);
+    }
+
+    /**
+     * 修改歌曲列表中的一个分支，用来获取到歌手的名称
+     * @param gender
+     * @return
+     * @throws SQLException
+     */
+    @Override
+    public String selectSingByC(int gender) throws SQLException {
+        return ad.selectCname(gender).getCName();
+    }
+
+    @Override
+    public boolean updateClassify(Classify classify) throws SQLException {
+        return ad.updateClassifyById(classify);
     }
 
 }

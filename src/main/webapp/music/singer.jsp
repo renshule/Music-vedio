@@ -45,10 +45,9 @@
                 </div>
 
                 <div class="ibox-content">
+                    <a  class="btn btn-success" href="${pageContext.request.contextPath}/music/singerAdd.jsp">添加歌手</a>
 
                     <table id="table"></table>
-                    <div class="btn btn-warning" id="removeAll">删除所选</div>
-                    <a  class="btn btn-success" href="${pageContext.request.contextPath}/music/singerAdd.jsp">添加分类</a>
 
                 </div>
 
@@ -90,11 +89,82 @@
             {
                 field: 'singerIntro',
                 title: '歌手简介',
-            },
+            },{
+                title:'操作',
+                formatter:'caozuoFormater',
+                events:'operateEvents'
+            }
         ]
 
     });
+
+    window.operateEvents = {
+        'click .edit': function (e, value, row) {
+            alert('You click like action, row: ' + JSON.stringify(row));
+            $('#rr [name=name]').val(row['singerName']);
+            $('#rr [name=intro]').val(row['singerIntro']);
+            $('#rr [name=id]').val(row['singerId']);
+            inde=layer.open({
+                type:1,
+                content:$('#rr'),
+                area:['600px','400px'],
+            })
+        }
+    };
+    function caozuoFormater(value, row, index) {
+        return [
+            '<div>',
+            '<a class="edit" href="javascript:void(0)" title="Like">',
+            '<i class="fa fa-pencil"></i>',
+            '</a>',
+            '</div>'
+        ].join('');
+    };
+
+    $(function () {
+        $('#sub').click(function () {
+            alert($('form').serialize());
+            $.post('${pageContext.request.contextPath}/AdminServlet/updateByIdSinger',$('form').serialize(),function (r) {
+                if(r){
+                    layer.msg("修改成功");
+                    $('#table').bootstrapTable('refresh');
+                }else{
+                    layer.msg("修改失败");
+                }
+            })
+        })
+    })
 </script>
 </body>
+<div class="row" id="rr" style="display: none">
+    <div class="col-sm-12">
+        <div class="ibox float-e-margins">
 
+            <div class="ibox-content">
+                <form class="form-horizontal m-t" >
+                    <input type="hidden" name="id">
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label" type="text" name="name">歌手名称：</label>
+                        <div class="col-sm-8">
+                            <input name="name" minlength="2" type="text" class="form-control" >
+                        </div>
+
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label" type="text" name="intro">歌手简介：</label>
+                        <div class="col-sm-8">
+                            <input name="intro" minlength="2" type="text" class="form-control" >
+                        </div>
+
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-4 col-sm-offset-3">
+                            <div class="btn btn-primary" id="sub">提交</div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 </html>

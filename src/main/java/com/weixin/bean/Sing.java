@@ -14,6 +14,7 @@ public class Sing {
     private String singPic;
     private String singUrl;
     private Integer cId;
+    private String cName;
     private Integer singerId;
     private String singerName;
 }
