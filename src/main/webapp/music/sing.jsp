@@ -178,10 +178,11 @@
 
     $(function () {
         $('#sub').click(function () {
-            alert($('form').serialize());
+            /*alert($('form').serialize());*/
             $.post('${pageContext.request.contextPath}/AdminServlet/updateByIdSing',$('form').serialize(),function (r) {
                 if(r){
                     layer.msg("修改成功");
+                    layer.close(inde);
                     $('#table').bootstrapTable('refresh');
                 }else{
                     layer.msg("修改失败");

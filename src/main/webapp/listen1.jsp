@@ -34,7 +34,7 @@
         </a>
       </div>      
 	  <!--搜索框-->
-      <form class="navbar-form navbar-left input-s-lg m-t m-l-n-xs hidden-xs" role="search">
+      <%--<form class="navbar-form navbar-left input-s-lg m-t m-l-n-xs hidden-xs" role="search">
         <div class="form-group">
           <div class="input-group">
             <span class="input-group-btn">
@@ -43,7 +43,7 @@
             <input type="text" class="form-control input-sm no-border rounded" placeholder="Search songs, albums...">
           </div>
         </div>
-      </form>
+      </form>--%>
 	  <!--右端用户的列表-->
       <div class="navbar-right ">
         <ul class="nav navbar-nav m-n hidden-xs nav-user user">
@@ -61,7 +61,7 @@
               <span class="thumb-sm avatar pull-right m-t-n-sm m-b-n-sm m-l-sm">
                 <img src="${pageContext.request.contextPath}/images/a0.png" alt="...">
               </span>
-              John.Smith <b class="caret"></b>
+              ${name} <b class="caret"></b>
             </a>
             <ul class="dropdown-menu animated fadeInRight">            
               <li>
@@ -188,7 +188,7 @@
                         <c:forEach items="${singList}" var="sing">
                       <li class="list-group-item">
                         <div class="pull-right m-l">
-                          <a href="#" class="m-r-sm"><i class="icon-cloud-download"></i></a>
+                          <%--<a href="#" class="m-r-sm"><i class="icon-cloud-download"></i></a>--%>
                           <a href="#"><i class="icon-plus"></i></a>
                         </div>
                         <a href="#" class=" m-r-sm pull-left">
@@ -241,16 +241,18 @@
                 <section class="vbox">
                   <section class="scrollable hover">
                     <div class="m-t-n-xxs">
+                      <%--<c:forEach items="adList" var="ad">--%>
                       <div class="item pos-rlt">
                         <a href="#" class="item-overlay active opacity wrapper-md font-xs">
                           <span class="block h3 font-bold text-info">Find</span>
-                          <span class="text-muted">Search the music you like</span>
+                          <span class="text-muted">Find the peace in your heart</span>
                           <span class="bottom wrapper-md block">- <i class="icon-arrow-right i-lg pull-right"></i></span>
                         </a>
                         <a href="#">
-                          <img class="img-full" src="${pageContext.request.contextPath}/images/m40.jpg" alt="...">
+                          <img class="img-full" src="${pageContext.request.contextPath}/images/m41.jpg" alt="...">
                         </a>
                       </div>
+                     <%-- </c:forEach>--%>
                       <div class="item pos-rlt">
                         <a href="#" class="item-overlay active opacity wrapper-md font-xs text-right">
                           <span class="block h3 font-bold text-warning text-u-c">Listen</span>
@@ -297,6 +299,9 @@
               </section>
             </section>
           </section>
+            <footer class="footer"style="background-color: #2b303a">
+             <%-- <div id="jp_container_N"></div>--%>
+            </footer>
         </section>
           <a href="#" class="hide nav-off-screen-block" data-toggle="class:nav-off-screen,open" data-target="#nav,html"></a>
         </section>
@@ -325,23 +330,9 @@
         $(this).prev()[0].play();
     });
 
-    $('.icon-control-pause.text-active').click(function(){
-        //点击之后遍历所有的让其停止
-        $('audio').each(function () {
-            this.pause();
-        });
-        $(this).prev()[0].pause();
-    });
-
-
-    $('.icon-control-play.text').click(function(){
-        //点击之后遍历所有的让其停止
-        $('audio').each(function () {
-            this.pause();
-        });
-        //然后播放上一个  得到的把它转化成一个原生对象
-        $(this).prev()[0].play();
-    });
+  $('.icon-plus').click(function () {
+      alert()
+  })
 </script>
 
 </html>

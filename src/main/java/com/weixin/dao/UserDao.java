@@ -1,5 +1,6 @@
 package com.weixin.dao;
 
+import com.weixin.bean.Ad;
 import com.weixin.bean.Sing;
 import com.weixin.bean.User;
 
@@ -25,4 +26,6 @@ public interface UserDao {
     List<Sing> selectLeftAll() throws SQLException;
 
     List<Sing> selectmidAll() throws SQLException;
+
+    List<Ad> selectRightAll()throws SQLException;
 }

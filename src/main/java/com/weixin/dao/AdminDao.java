@@ -65,4 +65,8 @@ public interface AdminDao {
     Classify selectCname(int gender)throws SQLException;
 
     boolean updateClassifyById(Classify classify)throws SQLException;
+
+    List<Singer> searchSinger(String search)throws SQLException;
+
+    Integer countSinger(String search)throws SQLException;
 }

@@ -8,6 +8,7 @@ import com.weixin.dao.AdminDao;
 import com.weixin.util.C3p0Utils;
 import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
+import org.apache.commons.dbutils.handlers.ScalarHandler;
 import util.C3P0utils;
 
 import java.sql.SQLException;
@@ -208,5 +209,21 @@ public class AdminDaoImple implements AdminDao {
     @Override
     public boolean updateClassifyById(Classify classify) throws SQLException {
         return C3p0Utils.qr.update("update classify Classify set c_name=? where c_id=?",classify.getCName(),classify.getCId())>0;
+    }
+
+    /**
+     * 搜索框
+     * @param search
+     * @return
+     * @throws SQLException
+     */
+    @Override
+    public List<Singer> searchSinger(String search) throws SQLException {
+        return C3p0Utils.qr.query("select * from singer Singer where concat(singer_name,singe_intro) like ?",new BeanListHandler<>(Singer.class),"%"+search+"%");
+    }
+
+    @Override
+    public Integer countSinger(String search) throws SQLException {
+        return C3p0Utils.qr.query("select count(*) from singer Singer where concat(singer_name,singe_intro) like ?",new ScalarHandler<Long>(),"%"+search+"%").intValue();
     }
 }

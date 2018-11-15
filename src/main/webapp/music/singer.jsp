@@ -72,12 +72,13 @@
     $('#table').bootstrapTable({
        url:'${pageContext.request.contextPath}/AdminServlet/Singer',
         pagination:true,
-       /* pageSize:5,
+        pageSize:5,
         pageList:[5,7,'All'],
         showColumns:true,
-        search:true,
-        showRefresh:true,*/
+
+        showRefresh:true,
       /*  sidePagination:'Client',*/
+        search:true,
         columns: [
             {
                 checkbox:true
@@ -100,7 +101,7 @@
 
     window.operateEvents = {
         'click .edit': function (e, value, row) {
-            alert('You click like action, row: ' + JSON.stringify(row));
+            /*alert('You click like action, row: ' + JSON.stringify(row));*/
             $('#rr [name=name]').val(row['singerName']);
             $('#rr [name=intro]').val(row['singerIntro']);
             $('#rr [name=id]').val(row['singerId']);
@@ -127,6 +128,7 @@
             $.post('${pageContext.request.contextPath}/AdminServlet/updateByIdSinger',$('form').serialize(),function (r) {
                 if(r){
                     layer.msg("修改成功");
+                    layer.close(inde);
                     $('#table').bootstrapTable('refresh');
                 }else{
                     layer.msg("修改失败");

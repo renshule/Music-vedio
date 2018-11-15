@@ -100,7 +100,7 @@
     });
     window.operateEvents = {
         'click .edit': function (e, value, row) {
-            alert('You click like action, row: ' + JSON.stringify(row));
+            /*alert('You click like action, row: ' + JSON.stringify(row));*/
             $('#rr [name=name]').val(row['adIntro']);
             $('#rr [name=pic]').val(row['adPic']);
             $('#rr [name=id]').val(row['adId']);
@@ -171,6 +171,7 @@
             $.post('${pageContext.request.contextPath}/AdminServlet/updateById',$('form').serialize(),function (r) {
                 if(r){
                     layer.msg("修改成功");
+                    layer.close(inde);
                     $('#table').bootstrapTable('refresh');
                 }else{
                     layer.msg("修改失败");

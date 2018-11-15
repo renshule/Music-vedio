@@ -1,5 +1,6 @@
 package com.weixin.dao.UserDaoImple;
 
+import com.weixin.bean.Ad;
 import com.weixin.bean.Sing;
 import com.weixin.bean.User;
 import com.weixin.dao.UserDao;
@@ -42,6 +43,11 @@ public class UserDaoImple implements UserDao {
     @Override
     public List<Sing> selectmidAll() throws SQLException {
         return C3p0Utils.qr.query("SELECT sing_id singId,sing_name singName,sing_pic singPic,sing_url singUrl,singer_name singerName FROM sing s,singer se,classify c WHERE s.singer_id=se.singer_id AND s.`c_id`=c.c_id AND c_name='欧美' LIMIT 1,8;",new BeanListHandler<Sing>(Sing.class));
+    }
+
+    @Override
+    public List<Ad> selectRightAll() throws SQLException {
+        return C3p0Utils.qr.query("SELECT ad_id adId,ad_pic adPic,ad_hot adHot,ad_intro adIntro FROM ad  WHERE ad_id=1 LIMIT 0,4",new BeanListHandler<Ad>(Ad.class));
     }
 
 

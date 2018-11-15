@@ -1,7 +1,6 @@
 package com.weixin.servlet;
 
 import com.google.gson.Gson;
-import com.weixin.bean.Sing;
 import com.weixin.bean.User;
 import com.weixin.service.UserService;
 import com.weixin.service.serviceimple.UserServceImple;
@@ -31,8 +30,6 @@ public class UserServlet extends HttpServlet {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-        }else if("selectLeftAll".equals(pathInfo)){
-            selectLeftAll(request,response);
         }
     }
 
@@ -41,7 +38,7 @@ public class UserServlet extends HttpServlet {
      * @param request
      * @param response
      */
-    private void selectLeftAll(HttpServletRequest request, HttpServletResponse response) {
+    /*private void selectLeftAll(HttpServletRequest request, HttpServletResponse response) {
         System.out.println("+++++++++++++++++++++++++++++++++");
         try {
             //左侧页面内容
@@ -53,12 +50,14 @@ public class UserServlet extends HttpServlet {
             System.out.println(singList1);
             request.setAttribute("singList1",singList1);
             //右边页面内容
-
+            List<Ad> adList=userService.adListAll();
+            System.out.println(adList);
+            request.setAttribute("adList",adList);
             request.getRequestDispatcher("/listen1.jsp").forward(request,response);
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }
+    }*/
 
     /**
      * 用户列表展示

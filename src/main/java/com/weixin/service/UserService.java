@@ -1,5 +1,6 @@
 package com.weixin.service;
 
+import com.weixin.bean.Ad;
 import com.weixin.bean.Sing;
 import com.weixin.bean.User;
 
@@ -16,4 +17,6 @@ public interface UserService {
     List<Sing> singListAll() throws SQLException;
 
     List<Sing> singListAll1() throws SQLException;
+
+    List<Ad> adListAll()throws SQLException;
 }

@@ -91,7 +91,7 @@
     });
     window.operateEvents = {
         'click .edit': function (e, value, row) {
-            alert('You click like action, row: ' + JSON.stringify(row));
+           /* alert('You click like action, row: ' + JSON.stringify(row));*/
             $('#rr [name=name]').val(row['cName']);
             $('#rr [name=id]').val(row['cId']);
             inde = layer.open({
@@ -117,6 +117,7 @@
             $.post('${pageContext.request.contextPath}/AdminServlet/updateByIdClassify',$('form').serialize(),function (r) {
                 if(r){
                     layer.msg("修改成功");
+                    layer.close(inde);
                     $('#table').bootstrapTable('refresh');
                 }else{
                     layer.msg("修改失败");

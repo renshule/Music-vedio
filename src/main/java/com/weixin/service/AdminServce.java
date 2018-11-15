@@ -70,4 +70,8 @@ public interface AdminServce {
     String selectSingByC(int gender) throws SQLException;
 
     boolean updateClassify(Classify classify)throws SQLException;
+
+    List<Singer> selectAllByPaginationSearch(String search)throws SQLException;
+
+    Integer countSearch(String search)throws SQLException;
 }

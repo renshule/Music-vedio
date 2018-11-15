@@ -209,4 +209,14 @@ public class AdminServceimple implements AdminServce {
         return ad.updateClassifyById(classify);
     }
 
+    @Override
+    public List<Singer> selectAllByPaginationSearch(String search) throws SQLException {
+        return ad.searchSinger(search);
+    }
+
+    @Override
+    public Integer countSearch(String search) throws SQLException {
+        return ad.countSinger(search);
+    }
+
 }
