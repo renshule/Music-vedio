@@ -12,4 +12,5 @@ public class Ad {
     private String adPic;
     private Integer adHot;
     private String adIntro;
+
 }

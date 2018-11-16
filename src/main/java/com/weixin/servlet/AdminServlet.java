@@ -237,6 +237,7 @@ public class AdminServlet extends HttpServlet {
         String name = request.getParameter("name");
         String pic = request.getParameter("pic");
         Integer hot = Integer.valueOf(request.getParameter("hot"));
+
         Ad add=new Ad(null,pic,hot,name);
         try {
             boolean b=as.addAd(add);
