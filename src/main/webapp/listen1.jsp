@@ -4,7 +4,7 @@
 <html lang="en" class="app">
 <head>  
   <meta charset="utf-8" />
-  <title>Musik | Web Application</title>
+  <title>Music | Web Application</title>
   <meta name="description" content="app, web app, responsive, admin dashboard, admin, flat, flat ui, ui kit, off screen nav" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <link rel="stylesheet" href="${pageContext.request.contextPath}/js/jPlayer/jplayer.flat.css" type="text/css" />
@@ -47,7 +47,7 @@
 	  <!--右端用户的列表-->
       <div class="navbar-right ">
         <ul class="nav navbar-nav m-n hidden-xs nav-user user">
-          <li class="hidden-xs">
+          <%--<li class="hidden-xs">
             <a href="#" class="dropdown-toggle lt" data-toggle="dropdown">
               <i class="icon-bell"></i>
               <span class="badge badge-sm up bg-danger count">2</span>
@@ -55,7 +55,7 @@
             <section class="dropdown-menu aside-xl animated fadeInUp">
              
             </section>
-          </li>
+          </li>--%>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle bg clear" data-toggle="dropdown">
               <span class="thumb-sm avatar pull-right m-t-n-sm m-b-n-sm m-l-sm">
@@ -65,9 +65,8 @@
             </a>
             <ul class="dropdown-menu animated fadeInRight">
               <li>
-                <a href="profile.html">Profile</a>
+                <a href="profile.html">Like</a>
               </li>
-
               <li>
                 <a href="login.jsp" data-toggle="ajaxModal" >Logout</a>
               </li>
@@ -102,45 +101,45 @@
             </section>--%>
 			<!--左下角的列表-->
             <footer class="footer hidden-xs no-padder text-center-nav-xs">
-              <div class="bg hidden-xs ">
-                  <div class="dropdown dropup wrapper-sm clearfix">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                      <span class="thumb-sm avatar pull-left m-l-xs">                        
-                        <img src="${pageContext.request.contextPath}/images/a3.png" class="dker" alt="...">
-                        <i class="on b-black"></i>
-                      </span>
-                      <span class="hidden-nav-xs clear">
-                        <span class="block m-l">
-                          <strong class="font-bold text-lt">John.Smith</strong> 
-                          <b class="caret"></b>
-                        </span>
-                        <span class="text-muted text-xs block m-l">Art Director</span>
-                      </span>
-                    </a>
-                    <ul class="dropdown-menu animated fadeInRight aside text-left">                      
-                      <li>
-                        <span class="arrow bottom hidden-nav-xs"></span>
-                        <a href="#">Settings</a>
-                      </li>
-                      <li>
-                        <a href="profile.html">Profile</a>
-                      </li>
-                      <li>
-                        <a href="#">
-                          <span class="badge bg-danger pull-right">3</span>
-                          Notifications
-                        </a>
-                      </li>
-                      <li>
-                        <a href="docs.html">Help</a>
-                      </li>
-                      <li class="divider"></li>
-                      <li>
-                        <a href="modal.lockme.html" data-toggle="ajaxModal" >Logout</a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
+              <%--<div class="bg hidden-xs ">--%>
+                  <%--<div class="dropdown dropup wrapper-sm clearfix">--%>
+                    <%--<a href="#" class="dropdown-toggle" data-toggle="dropdown">--%>
+                      <%--<span class="thumb-sm avatar pull-left m-l-xs">                        --%>
+                        <%--<img src="${pageContext.request.contextPath}/images/a3.png" class="dker" alt="...">--%>
+                        <%--<i class="on b-black"></i>--%>
+                      <%--</span>--%>
+                      <%--<span class="hidden-nav-xs clear">--%>
+                        <%--<span class="block m-l">--%>
+                          <%--<strong class="font-bold text-lt">John.Smith</strong> --%>
+                          <%--<b class="caret"></b>--%>
+                        <%--</span>--%>
+                        <%--<span class="text-muted text-xs block m-l">Art Director</span>--%>
+                      <%--</span>--%>
+                    <%--</a>--%>
+                    <%--<ul class="dropdown-menu animated fadeInRight aside text-left">                      --%>
+                      <%--<li>--%>
+                        <%--<span class="arrow bottom hidden-nav-xs"></span>--%>
+                        <%--<a href="#">Settings</a>--%>
+                      <%--</li>--%>
+                      <%--<li>--%>
+                        <%--<a href="profile.html">Profile</a>--%>
+                      <%--</li>--%>
+                      <%--<li>--%>
+                        <%--<a href="#">--%>
+                          <%--<span class="badge bg-danger pull-right">3</span>--%>
+                          <%--Notifications--%>
+                        <%--</a>--%>
+                      <%--</li>--%>
+                      <%--<li>--%>
+                        <%--<a href="docs.html">Help</a>--%>
+                      <%--</li>--%>
+                      <%--<li class="divider"></li>--%>
+                      <%--<li>--%>
+                        <%--<a href="modal.lockme.html" data-toggle="ajaxModal" >Logout</a>--%>
+                      <%--</li>--%>
+                    <%--</ul>--%>
+                  <%--</div>--%>
+                <%--</div>--%>
             </footer>
           </section>
         </aside>
@@ -230,34 +229,22 @@
                     <div class="m-t-n-xxs">
                       <%--<c:forEach items="adList" var="ad">--%>
                       <div class="item pos-rlt">
-                        <a href="#" class="item-overlay active opacity wrapper-md font-xs">
-                          <span class="block h3 font-bold text-info">Find</span>
-                          <span class="text-muted">Find the peace in your heart</span>
-                          <span class="bottom wrapper-md block">- <i class="icon-arrow-right i-lg pull-right"></i></span>
-                        </a>
-                        <a href="#">
-                          <img class="img-full" src="${pageContext.request.contextPath}/images/m41.jpg" alt="...">
+                        <a href="https://m.xtep.com.cn/" >
+                          <span class="block h3 font-bold text-success text-u-c">特步飞一般的感觉</span>
+                            <img src="/upload/f0dc3ccc-0042-41d6-b7b4-0f97610bfb28.jpg" height="157px" width="314px">
                         </a>
                       </div>
                      <%-- </c:forEach>--%>
                       <div class="item pos-rlt">
-                        <a href="#" class="item-overlay active opacity wrapper-md font-xs text-right">
-                          <span class="block h3 font-bold text-warning text-u-c">Listen</span>
-                          <span class="text-muted">Find the peace in your heart</span>
-                          <span class="bottom wrapper-md block"><i class="icon-arrow-right i-lg pull-left"></i> -</span>
-                        </a>
-                        <a href="#">
-                          <img class="img-full" src="${pageContext.request.contextPath}/images/m41.jpg" alt="...">
+                        <a href="https://www.green-go.cn/" >
+                          <span class="block h3 font-bold text-success text-u-c">Green  出行</span>
+                          <img src="/upload/d7d02c53-8bfe-47a4-981d-6185d905198f.jpg" height="157px" width="314px">
                         </a>
                       </div>
                       <div class="item pos-rlt">
-                        <a href="#" class="item-overlay active opacity wrapper-md font-xs">
-                          <span class="block h3 font-bold text-success text-u-c">Share</span>
-                          <span class="text-muted">Share the good songs with your loves</span>
-                          <span class="bottom wrapper-md block">- <i class="icon-arrow-right i-lg pull-right"></i></span>
-                        </a>
-                        <a href="#">
-                          <img class="img-full" src="${pageContext.request.contextPath}/images/m42.jpg" alt="...">
+                        <a href="http://www.minimusictime.com/" >
+                          <span class="block h3 font-bold text-success text-u-c">听音乐用  Mini Music</span>
+                          <img src="/upload/e2519a93-02e2-44fb-ba91-5ab2b3b6711c.jpg" height="157px" width="314px">
                         </a>
                       </div>
                       <div class="item pos-rlt">

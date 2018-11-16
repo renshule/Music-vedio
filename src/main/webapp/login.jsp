@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 
-    <title>H+ 后台主题UI框架 - 登录</title>
+    <title>Music Video - 登录</title>
     <jsp:include page="/layout/css.jsp"/>
     <!--[if lt IE 9]>
     <meta http-equiv="refresh" content="0;ie.html" />
