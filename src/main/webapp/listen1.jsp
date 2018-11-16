@@ -60,13 +60,13 @@
             <a href="#" class="dropdown-toggle bg clear" data-toggle="dropdown">
               <span class="thumb-sm avatar pull-right m-t-n-sm m-b-n-sm m-l-sm">
                 <img src="${pageContext.request.contextPath}/images/a0.png" alt="...">
-              </span>
-              ${name} <b class="caret"></b>
+              </span>${name}
+              <b class="caret"></b>
             </a>
             <ul class="dropdown-menu animated fadeInRight">
-              <li>
-                <a href="profile.html">Like</a>
-              </li>
+              <li class="dropdown-menu animated fadeInRight">
+               <%-- <a href="profile.html">Like</a>--%>
+
               <li>
                 <a href="login.jsp" data-toggle="ajaxModal" >Logout</a>
               </li>
@@ -101,45 +101,31 @@
             </section>--%>
 			<!--左下角的列表-->
             <footer class="footer hidden-xs no-padder text-center-nav-xs">
-              <%--<div class="bg hidden-xs ">--%>
-                  <%--<div class="dropdown dropup wrapper-sm clearfix">--%>
-                    <%--<a href="#" class="dropdown-toggle" data-toggle="dropdown">--%>
-                      <%--<span class="thumb-sm avatar pull-left m-l-xs">                        --%>
-                        <%--<img src="${pageContext.request.contextPath}/images/a3.png" class="dker" alt="...">--%>
-                        <%--<i class="on b-black"></i>--%>
-                      <%--</span>--%>
-                      <%--<span class="hidden-nav-xs clear">--%>
-                        <%--<span class="block m-l">--%>
-                          <%--<strong class="font-bold text-lt">John.Smith</strong> --%>
-                          <%--<b class="caret"></b>--%>
-                        <%--</span>--%>
-                        <%--<span class="text-muted text-xs block m-l">Art Director</span>--%>
-                      <%--</span>--%>
-                    <%--</a>--%>
-                    <%--<ul class="dropdown-menu animated fadeInRight aside text-left">                      --%>
-                      <%--<li>--%>
-                        <%--<span class="arrow bottom hidden-nav-xs"></span>--%>
-                        <%--<a href="#">Settings</a>--%>
-                      <%--</li>--%>
-                      <%--<li>--%>
-                        <%--<a href="profile.html">Profile</a>--%>
-                      <%--</li>--%>
-                      <%--<li>--%>
-                        <%--<a href="#">--%>
-                          <%--<span class="badge bg-danger pull-right">3</span>--%>
-                          <%--Notifications--%>
-                        <%--</a>--%>
-                      <%--</li>--%>
-                      <%--<li>--%>
-                        <%--<a href="docs.html">Help</a>--%>
-                      <%--</li>--%>
-                      <%--<li class="divider"></li>--%>
-                      <%--<li>--%>
-                        <%--<a href="modal.lockme.html" data-toggle="ajaxModal" >Logout</a>--%>
-                      <%--</li>--%>
-                    <%--</ul>--%>
-                  <%--</div>--%>
-                <%--</div>--%>
+              <div class="bg hidden-xs ">
+                  <div class="dropdown dropup wrapper-sm clearfix">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                      <span class="thumb-sm avatar pull-left m-l-xs">
+                        <img src="${pageContext.request.contextPath}/images/a3.png" class="dker" alt="...">
+                        <i class="on b-black"></i>
+                      </span>
+                      <span class="hidden-nav-xs clear">
+                        <span class="block m-l">
+                          <strong class="font-bold text-lt">最近播放</strong>
+                          <b class="caret"></b>
+                        </span>
+                        <span class="text-muted text-xs block m-l">Art Director</span>
+                      </span>
+                    </a>
+                    <ul class="dropdown-menu animated fadeInRight aside text-left">
+                      <c:forEach items="${userSingList}" var="usersing">
+                      <li>
+                        <span class="arrow bottom hidden-nav-xs"></span>
+                        <a href="#">${usersing.singName}</a>
+                      </li>
+                      </c:forEach>
+                    </ul>
+                  </div>
+                </div>
             </footer>
           </section>
         </aside>
@@ -203,7 +189,7 @@
                       <li class="list-group-item clearfix">
                         <a href="#" class=" pull-right m-t-sm m-l text-md">
 							<!-- 歌曲右侧播放控制键-->
-                          <audio id="audio1"  src="${sing.singUrl}" ></audio>
+                          <audio class="audio1"  src="${sing.singUrl}"  data="${sing.singId}"></audio>
                           <i class="icon-control-play text"></i>
                           <i class="icon-control-pause text-active"></i>
                         </a>
@@ -271,6 +257,10 @@
         });
         //然后播放上一个  得到的把它转化成一个原生对象
         $(this).prev()[0].play();
+        singId = $(this).prev().attr('data');
+
+        $.post('${pageContext.request.contextPath}/UserServlet/addUserSing',{"singId":singId,"userName":'${name}'},function (r) {
+        })
     });
 
 </script>

@@ -3,6 +3,7 @@ package com.weixin.dao.UserDaoImple;
 import com.weixin.bean.Ad;
 import com.weixin.bean.Sing;
 import com.weixin.bean.User;
+import com.weixin.bean.UserSing;
 import com.weixin.dao.UserDao;
 import com.weixin.util.C3p0Utils;
 import org.apache.commons.dbutils.handlers.BeanHandler;
@@ -48,6 +49,26 @@ public class UserDaoImple implements UserDao {
     @Override
     public List<Ad> selectRightAll() throws SQLException {
         return C3p0Utils.qr.query("SELECT ad_id adId,ad_pic adPic,ad_hot adHot,ad_intro adIntro FROM ad  WHERE ad_hot=1 LIMIT 0,4",new BeanListHandler<Ad>(Ad.class));
+    }
+
+    @Override
+    public Sing selectListSing(Integer singId) throws SQLException {
+        return C3p0Utils.qr.query("select sing_name singName from sing where sing_id=?",new BeanHandler<>(Sing.class),singId);
+    }
+
+    @Override
+    public boolean insertSingUse(String singName,Integer u_id) throws SQLException {
+        return C3p0Utils.qr.update("insert into usersing values(null,?,?)",singName,u_id)>0;
+    }
+
+    @Override
+    public User selectListUser(String userName) throws SQLException {
+        return C3p0Utils.qr.query("select u_id  from user where u_name=?",new BeanHandler<>(User.class),userName);
+    }
+
+    @Override
+    public List<UserSing> selectUpdown(Integer u_id) throws SQLException {
+        return C3p0Utils.qr.query("select Sing_name singName from usersing where u_id=?",new BeanListHandler<>(UserSing.class),u_id);
     }
 
 

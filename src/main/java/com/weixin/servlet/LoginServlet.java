@@ -3,6 +3,7 @@ package com.weixin.servlet;
 import com.weixin.bean.Ad;
 import com.weixin.bean.Sing;
 import com.weixin.bean.User;
+import com.weixin.bean.UserSing;
 import com.weixin.dao.UserDaoImple.LoginServiceImpl;
 import com.weixin.service.LoginService;
 import com.weixin.service.UserService;
@@ -58,6 +59,13 @@ public class LoginServlet extends HttpServlet {
                 System.out.println(adList);
                 request.setAttribute("adList",adList);
                 request.setAttribute("name",name);
+                //最近播放列表展示
+                User user1 = userService.selectUser(name);
+                Integer u_id = user1.getU_id();
+                List<UserSing> userSingList=userService.userSingListAll(u_id);
+                System.out.println(userSingList);
+                request.setAttribute("userSingList",userSingList);
+
                 request.getRequestDispatcher("/listen1.jsp").forward(request,response);
 
 

@@ -1,6 +1,7 @@
 package com.weixin.servlet;
 
 import com.google.gson.Gson;
+import com.weixin.bean.Sing;
 import com.weixin.bean.User;
 import com.weixin.service.UserService;
 import com.weixin.service.serviceimple.UserServceImple;
@@ -30,7 +31,40 @@ public class UserServlet extends HttpServlet {
             } catch (Exception e) {
                 e.printStackTrace();
             }
+        }else if("addUserSing".equals(pathInfo)){
+            addUserSing(request,response);
         }
+    }
+
+    private void addUserSing(HttpServletRequest request, HttpServletResponse response) {
+        int singId = Integer.valueOf(request.getParameter("singId"));
+        String userName = request.getParameter("userName");
+
+        System.out.println(singId);
+        System.out.println(userName);
+            try {
+            Sing singList1=userService.selectSing(singId);
+                System.out.println(singList1);
+            String singName = singList1.getSingName();
+                System.out.println(singName);
+              User  user=userService.selectUser(userName);
+                System.out.println(user);
+                Integer u_id = user.getU_id();
+                System.out.println(u_id);
+                boolean b=userService.addUserSing(singName,u_id);
+            System.out.println(b);
+           /* if (b) {
+
+                request.setAttribute("msg", "添加成功");
+
+            } else {
+
+                request.setAttribute("msg", "添加失败");
+            }*/
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }
 
     /**

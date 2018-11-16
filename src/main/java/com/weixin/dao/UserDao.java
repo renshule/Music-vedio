@@ -3,6 +3,7 @@ package com.weixin.dao;
 import com.weixin.bean.Ad;
 import com.weixin.bean.Sing;
 import com.weixin.bean.User;
+import com.weixin.bean.UserSing;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -28,4 +29,12 @@ public interface UserDao {
     List<Sing> selectmidAll() throws SQLException;
 
     List<Ad> selectRightAll()throws SQLException;
+
+    Sing selectListSing(Integer singId)throws SQLException;
+
+    boolean insertSingUse(String singName,Integer u_id)throws SQLException;
+
+    User selectListUser(String userName)throws SQLException;
+
+    List<UserSing> selectUpdown(Integer u_id)throws SQLException;
 }
