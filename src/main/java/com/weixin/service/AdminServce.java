@@ -71,7 +71,5 @@ public interface AdminServce {
 
     boolean updateClassify(Classify classify)throws SQLException;
 
-    List<Singer> selectAllByPaginationSearch(String search)throws SQLException;
 
-    Integer countSearch(String search)throws SQLException;
 }

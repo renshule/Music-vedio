@@ -15,9 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @WebServlet("/AdminServlet/*")
 public class AdminServlet extends HttpServlet {
@@ -69,35 +67,7 @@ public class AdminServlet extends HttpServlet {
             updateByIdSing(request,response);
         }else if ("updateByIdClassify".equals(pathInfo)){
             updateByIdClassify(request,response);
-        }else if("searchSinger".equals(pathInfo)){
-            searchSinger(request,response);
         }
-    }
-
-    /**
-     * 歌手列表查询
-     * @param request
-     * @param response
-     */
-    private void searchSinger(HttpServletRequest request, HttpServletResponse response) {
-        String search = request.getParameter("search");
-        List<Singer> singerList = null;
-        try {
-            singerList = as.selectAllByPaginationSearch(search);
-            //查询total数据：
-            int total = as.countSearch(search);
-            Map<String,Object> map = new HashMap<>();
-            map.put("total",total);
-            map.put("rows",singerList);
-
-            Gson gson = new Gson();
-            String s = gson.toJson(map);
-            response.getWriter().print(s);
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
     }
 
     /**

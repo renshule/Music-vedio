@@ -74,11 +74,11 @@
         pagination:true,
         pageSize:5,
         pageList:[5,7,'All'],
-        showColumns:true,
+
 
         showRefresh:true,
       /*  sidePagination:'Client',*/
-        search:true,
+
         columns: [
             {
                 checkbox:true

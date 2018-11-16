@@ -227,46 +227,15 @@
                 <section class="vbox">
                   <section class="scrollable hover">
                     <div class="m-t-n-xxs">
-                      <%--<c:forEach items="adList" var="ad">--%>
+                      <c:forEach items="${adList}" var="ad">
                       <div class="item pos-rlt">
                         <a href="https://m.xtep.com.cn/" >
-                          <span class="block h3 font-bold text-success text-u-c">特步飞一般的感觉</span>
-                            <img src="/upload/f0dc3ccc-0042-41d6-b7b4-0f97610bfb28.jpg" height="157px" width="314px">
+                          <span class="block h3 font-bold text-success text-u-c">${ad.adIntro}</span>
+                          <img src="${ad.adPic}" height="157px" width="314px">
                         </a>
                       </div>
-                     <%-- </c:forEach>--%>
-                      <div class="item pos-rlt">
-                        <a href="https://www.green-go.cn/" >
-                          <span class="block h3 font-bold text-success text-u-c">Green  出行</span>
-                          <img src="/upload/d7d02c53-8bfe-47a4-981d-6185d905198f.jpg" height="157px" width="314px">
-                        </a>
-                      </div>
-                      <div class="item pos-rlt">
-                        <a href="http://www.minimusictime.com/" >
-                          <span class="block h3 font-bold text-success text-u-c">听音乐用  Mini Music</span>
-                          <img src="/upload/e2519a93-02e2-44fb-ba91-5ab2b3b6711c.jpg" height="157px" width="314px">
-                        </a>
-                      </div>
-                      <div class="item pos-rlt">
-                        <a href="#" class="item-overlay active opacity wrapper-md font-xs text-right">
-                          <span class="block h3 font-bold text-white text-u-c">2014</span>
-                          <span class="text-muted">Find, Listen & Share</span>
-                          <span class="bottom wrapper-md block"><i class="icon-arrow-right i-lg pull-left"></i> -</span>
-                        </a>
-                        <a href="#">
-                          <img class="img-full" src="${pageContext.request.contextPath}/images/m44.jpg" alt="...">
-                        </a>
-                      </div>
-                      <div class="item pos-rlt">
-                        <a href="#" class="item-overlay active opacity wrapper-md font-xs">
-                          <span class="block h3 font-bold text-danger-lter text-u-c">Top10</span>
-                          <span class="text-muted">Selected songs</span>
-                          <span class="bottom wrapper-md block">- <i class="icon-arrow-right i-lg pull-right"></i></span>
-                        </a>
-                        <a href="#">
-                          <img class="img-full" src="${pageContext.request.contextPath}/images/m45.jpg" alt="...">
-                        </a>
-                      </div>
+                      </c:forEach>
+
                     </div>
                   </section>
                 </section>
@@ -304,9 +273,6 @@
         $(this).prev()[0].play();
     });
 
-  $('.icon-plus').click(function () {
-      alert()
-  })
 </script>
 
 </html>

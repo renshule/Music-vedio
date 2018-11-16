@@ -66,7 +66,5 @@ public interface AdminDao {
 
     boolean updateClassifyById(Classify classify)throws SQLException;
 
-    List<Singer> searchSinger(String search)throws SQLException;
 
-    Integer countSinger(String search)throws SQLException;
 }

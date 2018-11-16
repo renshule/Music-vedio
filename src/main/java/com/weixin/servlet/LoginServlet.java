@@ -1,5 +1,6 @@
 package com.weixin.servlet;
 
+import com.weixin.bean.Ad;
 import com.weixin.bean.Sing;
 import com.weixin.bean.User;
 import com.weixin.dao.UserDaoImple.LoginServiceImpl;
@@ -52,10 +53,10 @@ public class LoginServlet extends HttpServlet {
                 List<Sing> singList1=userService.singListAll1();
                 System.out.println(singList1);
                 request.setAttribute("singList1",singList1);
-                /*//右边页面内容
+                //右边页面内容
                 List<Ad> adList=userService.adListAll();
                 System.out.println(adList);
-                request.setAttribute("adList",adList);*/
+                request.setAttribute("adList",adList);
                 request.setAttribute("name",name);
                 request.getRequestDispatcher("/listen1.jsp").forward(request,response);
 

@@ -47,7 +47,7 @@ public class UserDaoImple implements UserDao {
 
     @Override
     public List<Ad> selectRightAll() throws SQLException {
-        return C3p0Utils.qr.query("SELECT ad_id adId,ad_pic adPic,ad_hot adHot,ad_intro adIntro FROM ad  WHERE ad_id=1 LIMIT 0,4",new BeanListHandler<Ad>(Ad.class));
+        return C3p0Utils.qr.query("SELECT ad_id adId,ad_pic adPic,ad_hot adHot,ad_intro adIntro FROM ad  WHERE ad_hot=1 LIMIT 0,4",new BeanListHandler<Ad>(Ad.class));
     }
 
 
