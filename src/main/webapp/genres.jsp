@@ -90,26 +90,13 @@
               ${name}
               <b class="caret"></b>
             </a>
-            <ul class="dropdown-menu animated fadeInRight">            
+            <ul class="dropdown-menu animated fadeInRight">
               <li>
-                <span class="arrow top"></span>
-                <a href="#">Settings</a>
+                <a href="profile.html">like</a>
               </li>
+
               <li>
-                <a href="profile.html">Profile</a>
-              </li>
-              <li>
-                <a href="#">
-                  <span class="badge bg-danger pull-right">3</span>
-                  Notifications
-                </a>
-              </li>
-              <li>
-                <a href="docs.html">Help</a>
-              </li>
-              <li class="divider"></li>
-              <li>
-                <a href="modal.lockme.html" data-toggle="ajaxModal" >Logout</a>
+                <a href="login.jsp" data-toggle="ajaxModal" >Logout</a>
               </li>
             </ul>
           </li>
