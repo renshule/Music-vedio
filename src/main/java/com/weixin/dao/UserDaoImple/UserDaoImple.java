@@ -46,6 +46,11 @@ public class UserDaoImple implements UserDao {
         return C3p0Utils.qr.query("SELECT sing_id singId,sing_name singName,sing_pic singPic,sing_url singUrl,singer_name singerName FROM sing s,singer se,classify c WHERE s.singer_id=se.singer_id AND s.`c_id`=c.c_id AND c_name='欧美' LIMIT 1,8;",new BeanListHandler<Sing>(Sing.class));
     }
 
+    /**
+     * 右侧广告展示
+     * @return
+     * @throws SQLException
+     */
     @Override
     public List<Ad> selectRightAll() throws SQLException {
         return C3p0Utils.qr.query("SELECT ad_id adId,ad_pic adPic,ad_hot adHot,ad_intro adIntro FROM ad  WHERE ad_hot=1 LIMIT 0,4",new BeanListHandler<Ad>(Ad.class));
@@ -56,6 +61,13 @@ public class UserDaoImple implements UserDao {
         return C3p0Utils.qr.query("select sing_name singName from sing where sing_id=?",new BeanHandler<>(Sing.class),singId);
     }
 
+    /**
+     * 最近播放列表
+     * @param singName
+     * @param u_id
+     * @return
+     * @throws SQLException
+     */
     @Override
     public boolean insertSingUse(String singName,Integer u_id) throws SQLException {
         return C3p0Utils.qr.update("insert into usersing values(null,?,?)",singName,u_id)>0;
@@ -69,6 +81,17 @@ public class UserDaoImple implements UserDao {
     @Override
     public List<UserSing> selectUpdown(Integer u_id) throws SQLException {
         return C3p0Utils.qr.query("select Sing_name singName from usersing where u_id=?",new BeanListHandler<>(UserSing.class),u_id);
+    }
+
+    /**
+     * 搜索歌曲
+     * @param singName
+     * @return
+     * @throws SQLException
+     */
+    @Override
+    public List<Sing> selectMidList(String singName) throws SQLException {
+        return C3p0Utils.qr.query("select sing_id singId,sing_name singName,sing_pic singPic,sing_url singUrl,singer_name singerName from sing Sing left join singer Singer on Sing.singer_id=Singer.singer_id where sing_name like ?",new BeanListHandler<>(Sing.class),'%'+singName+'%');
     }
 
 

@@ -37,4 +37,6 @@ public interface UserDao {
     User selectListUser(String userName)throws SQLException;
 
     List<UserSing> selectUpdown(Integer u_id)throws SQLException;
+
+    List<Sing> selectMidList(String singName)throws SQLException;
 }

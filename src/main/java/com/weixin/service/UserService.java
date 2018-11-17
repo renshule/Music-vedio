@@ -31,4 +31,6 @@ public interface UserService {
     User selectUser(String userName)throws SQLException;
 
     List<UserSing> userSingListAll(Integer u_id)throws SQLException;
+
+    List<Sing> selectSingByName(String singName)throws SQLException;
 }

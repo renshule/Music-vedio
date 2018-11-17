@@ -34,28 +34,19 @@
         </a>
       </div>      
 	  <!--搜索框-->
-      <%--<form class="navbar-form navbar-left input-s-lg m-t m-l-n-xs hidden-xs" role="search">
+      <form class="navbar-form navbar-left input-s-lg m-t m-l-n-xs hidden-xs" role="search">
         <div class="form-group">
           <div class="input-group">
             <span class="input-group-btn">
-              <button type="submit" class="btn btn-sm bg-white btn-icon rounded"><i class="fa fa-search"></i></button>
+              <div type="submit" class="btn btn-sm bg-white btn-icon rounded"><i class="fa fa-search"></i></div>
             </span>
-            <input type="text" class="form-control input-sm no-border rounded" placeholder="Search songs, albums...">
+            <input id="inp" type="text" class="form-control input-sm no-border rounded" placeholder="Search songs, albums..." name="singName">
           </div>
         </div>
-      </form>--%>
+      </form>
 	  <!--右端用户的列表-->
       <div class="navbar-right ">
         <ul class="nav navbar-nav m-n hidden-xs nav-user user">
-          <%--<li class="hidden-xs">
-            <a href="#" class="dropdown-toggle lt" data-toggle="dropdown">
-              <i class="icon-bell"></i>
-              <span class="badge badge-sm up bg-danger count">2</span>
-            </a>
-            <section class="dropdown-menu aside-xl animated fadeInUp">
-             
-            </section>
-          </li>--%>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle bg clear" data-toggle="dropdown">
               <span class="thumb-sm avatar pull-right m-t-n-sm m-b-n-sm m-l-sm">
@@ -65,8 +56,6 @@
             </a>
             <ul class="dropdown-menu animated fadeInRight">
               <li class="dropdown-menu animated fadeInRight">
-               <%-- <a href="profile.html">Like</a>--%>
-
               <li>
                 <a href="login.jsp" data-toggle="ajaxModal" >Logout</a>
               </li>
@@ -80,26 +69,7 @@
         <!-- .aside -->
         <aside class="bg-black dk nav-xs aside hidden-print" id="nav">          
           <section class="vbox">
-            <%--<section class="w-f-md scrollable">
-             &lt;%&ndash; <div class="slim-scroll" data-height="auto" data-disable-fade-out="true" data-distance="0" data-size="10px" data-railOpacity="0.2">
-                <!-- nav -->                 
-                <nav class="nav-primary hidden-xs">
-                  <ul class="nav bg clearfix">
-                    &lt;%&ndash;<li>
-                      <a href="listen.html">
-                        <i class="icon-list icon  text-info-dker"></i>
-                        <span class="font-bold">Listen</span>
-                      </a>
-                    </li>&ndash;%&gt;
-                    &lt;%&ndash;<li class="m-b hidden-nav-xs"></li>&ndash;%&gt;
-                  </ul>
-                  
-                </nav>
-                <!-- / nav -->
-              </div>&ndash;%&gt;
-			  
-            </section>--%>
-			<!--左下角的列表-->
+			<!--左下角的列表最近播放列表-->
             <footer class="footer hidden-xs no-padder text-center-nav-xs">
               <div class="bg hidden-xs ">
                   <div class="dropdown dropup wrapper-sm clearfix">
@@ -116,7 +86,7 @@
                         <span class="text-muted text-xs block m-l">Art Director</span>
                       </span>
                     </a>
-                    <ul class="dropdown-menu animated fadeInRight aside text-left">
+                    <ul class="dropdown-menu animated fadeInRight aside text-left" id="musicList">
                       <c:forEach items="${userSingList}" var="usersing">
                       <li>
                         <span class="arrow bottom hidden-nav-xs"></span>
@@ -161,18 +131,17 @@
                       <li class="list-group-item">
                         <div class="pull-right m-l">
                           <%--<a href="#" class="m-r-sm"><i class="icon-cloud-download"></i></a>--%>
-                          <a href="#"><i class="icon-plus"></i></a>
+                          <%--<a href="#"><i class="icon-plus"></i></a>--%>
                         </div>
                         <a href="#" class=" m-r-sm pull-left">
 						<!-- 歌曲左侧播放控制键-->
-                          <audio id="audio2" src="${sing.singUrl}"></audio>
+                          <audio id="audio2" src="${sing.singUrl}" data="${sing.singId}" aa="${sing.singName}"></audio>
                           <i class="icon-control-play text"></i>
                           <i class="icon-control-pause text-active"></i>
                         </a>
                         <div class="clear text-ellipsis">
                           <span>${sing.singName}</span>
                           <span class="text-muted"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--${sing.singerName}</span>
-                          <%--<span class="text-muted"> -- 02:35</span>--%>
                         </div>
                       </li>
                         </c:forEach>
@@ -184,12 +153,12 @@
               <section class="col-sm-4 no-padder bg">
                 <section class="vbox">
                   <section class="scrollable hover">
-                    <ul class="list-group list-group-lg no-bg auto m-b-none m-t-n-xxs">
+                    <ul class="list-group list-group-lg no-bg auto m-b-none m-t-n-xxs" id="uu">
                       <c:forEach items="${singList1}" var="sing">
                       <li class="list-group-item clearfix">
                         <a href="#" class=" pull-right m-t-sm m-l text-md">
 							<!-- 歌曲右侧播放控制键-->
-                          <audio class="audio1"  src="${sing.singUrl}"  data="${sing.singId}"></audio>
+                          <audio id="audio1"  src="${sing.singUrl}"  data="${sing.singId}" aa="${sing.singName}"></audio>
                           <i class="icon-control-play text"></i>
                           <i class="icon-control-pause text-active"></i>
                         </a>
@@ -229,7 +198,6 @@
             </section>
           </section>
             <footer class="footer"style="background-color: #2b303a">
-             <%-- <div id="jp_container_N"></div>--%>
             </footer>
         </section>
           <a href="#" class="hide nav-off-screen-block" data-toggle="class:nav-off-screen,open" data-target="#nav,html"></a>
@@ -250,18 +218,69 @@
 </body>
 <script>
 
-    $('.icon-control-play.text').click(function(){
-        //点击之后遍历所有的让其停止
-        $('audio').each(function () {
-            this.pause();
-        });
-        //然后播放上一个  得到的把它转化成一个原生对象
-        $(this).prev()[0].play();
-        singId = $(this).prev().attr('data');
 
-        $.post('${pageContext.request.contextPath}/UserServlet/addUserSing',{"singId":singId,"userName":'${name}'},function (r) {
-        })
-    });
+      $('.fa.fa-search').click(function () {
+          alert($('form').serialize());
+          /*singName =$('#inp').prev().attr('name');
+          alert(singName)*/
+          //传递过去搜索的参数
+         $.post('${pageContext.request.contextPath}/UserServlet/selectAllSing',($('form')).serialize(),function (r) {
+             if(r){
+                 //把他转化为json对象
+                 var obj=JSON.parse(r);
+                s = '';
+                //p表示下标，obj[p]表示下标为几的数据然后具体取到它里面的某一个元素
+                 for (var p in obj){
+                     console.log(p);
+                     ss=['<li class="list-group-item clearfix">'
+                         ,'<a href="#" class=" pull-right m-t-sm m-l text-md">'
+                         ,'<audio id="audio1"  src="'+obj[p]['singUrl']+'"  data="'+obj[p]['singId']+'" aa="'+obj[p]['singName']+'">'
+                         ,'</audio>'
+                         ,'<i class="icon-control-play text">'
+                         ,'</i>'
+                         ,'<i class="icon-control-pause text-active">'
+                         ,'</i>'
+                         ,'</a>'
+                         ,'<a href="#" class="pull-left thumb-sm m-r">'
+                         ,'<img src="'+obj[p]['singPic']+'" alt="...">'
+                         ,'</a>'
+                         ,'<a class="clear" href="#">'
+                         ,'<span class="block text-ellipsis">'+obj[p]['singName']+ '</span>'
+                         ,'<small class="text-muted">'+obj[p]['singerName']+'</small>'
+                         ,'</a>'
+                         ,'</li>'
+                     ].join('');
+                     s+=ss;//ss表示一个   这样子就表示所有的
+                 }
+                 $('#uu').html(s)
+             }else{
+
+             }
+         })
+      })
+
+
+        //后绑定，这样后来加载的也可以绑定这个事件
+      $(document).on('click','.icon-control-play.text',function(){
+          //点击之后遍历所有的让其停止
+          $('audio').each(function () {
+              this.pause();
+          });
+          //然后播放上一个  得到的把它转化成一个原生对象
+          $(this).prev()[0].play();
+          singId = $(this).prev().attr('data');
+          musicName =  $(this).prev().attr('aa');
+            //ajxa发请求并携带两个参数
+          $.post('${pageContext.request.contextPath}/UserServlet/addUserSing',{"singId":singId,"userName":'${name}'},function (r) {
+
+              if(r){
+                  s = ['<li>','<span class="arrow bottom hidden-nav-xs"></span>','<a href="#">'+musicName+'</a>',
+                      '<li>'].join('');
+                  $('#musicList').append(s);
+              }
+          })
+      });
+
 
 </script>
 

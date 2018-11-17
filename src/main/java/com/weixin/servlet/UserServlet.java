@@ -33,9 +33,37 @@ public class UserServlet extends HttpServlet {
             }
         }else if("addUserSing".equals(pathInfo)){
             addUserSing(request,response);
+        }else if("selectAllSing".equals(pathInfo)){
+            selectAllSing(request,response);
         }
     }
 
+    /**
+     * 搜索框查询数据
+     * @param request
+     * @param response
+     */
+    private void selectAllSing(HttpServletRequest request, HttpServletResponse response) {
+        String singName = request.getParameter("singName");
+        try {
+            List<Sing> singList1=userService.selectSingByName(singName);
+            System.out.println(singList1);
+            //以json字符串的形式发过去，转换步骤
+            Gson gson = new Gson();
+            System.out.println(gson);
+            System.out.println("****************************");
+            String s = gson.toJson(singList1);
+            response.getWriter().print(s);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * 播放记录
+     * @param request
+     * @param response
+     */
     private void addUserSing(HttpServletRequest request, HttpServletResponse response) {
         int singId = Integer.valueOf(request.getParameter("singId"));
         String userName = request.getParameter("userName");
@@ -52,46 +80,17 @@ public class UserServlet extends HttpServlet {
                 Integer u_id = user.getU_id();
                 System.out.println(u_id);
                 boolean b=userService.addUserSing(singName,u_id);
-            System.out.println(b);
-           /* if (b) {
-
-                request.setAttribute("msg", "添加成功");
-
-            } else {
-
-                request.setAttribute("msg", "添加失败");
-            }*/
+                if(b){
+                    response.getWriter().print("1");
+                }else{
+                    response.getWriter().print("");
+                }
+                System.out.println(b);
         } catch (Exception e) {
             e.printStackTrace();
         }
 
     }
-
-    /**
-     * 页面展示
-     * @param request
-     * @param response
-     */
-    /*private void selectLeftAll(HttpServletRequest request, HttpServletResponse response) {
-        System.out.println("+++++++++++++++++++++++++++++++++");
-        try {
-            //左侧页面内容
-            List<Sing> singList=userService.singListAll();
-            System.out.println(singList);
-            request.setAttribute("singList",singList);
-            //中间页面内容
-            List<Sing> singList1=userService.singListAll1();
-            System.out.println(singList1);
-            request.setAttribute("singList1",singList1);
-            //右边页面内容
-            List<Ad> adList=userService.adListAll();
-            System.out.println(adList);
-            request.setAttribute("adList",adList);
-            request.getRequestDispatcher("/listen1.jsp").forward(request,response);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }*/
 
     /**
      * 用户列表展示

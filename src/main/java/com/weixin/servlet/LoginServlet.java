@@ -44,9 +44,7 @@ public class LoginServlet extends HttpServlet {
                 response.sendRedirect(getServletContext().getContextPath()+"/index.jsp");
             }else{
                 //登录成功：
-                //跳转到genres.jsp首页：
-                /*request.getSession().setAttribute("user",user);
-                response.sendRedirect(getServletContext().getContextPath()+"/genres.jsp");*/
+                //跳转到listen1.jsp首页：
                 List<Sing> singList=userService.singListAll();
                 System.out.println(singList);
                 request.setAttribute("singList",singList);
@@ -68,8 +66,6 @@ public class LoginServlet extends HttpServlet {
 
                 request.getRequestDispatcher("/listen1.jsp").forward(request,response);
 
-
-               /* request.getRequestDispatcher("/genres.jsp").forward(request,response);*/
             }
         } catch (SQLException e) {
             e.printStackTrace();

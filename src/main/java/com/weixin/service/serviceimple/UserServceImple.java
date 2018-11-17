@@ -40,6 +40,13 @@ public class UserServceImple implements UserService {
         return userDao.selectRightAll();
     }
 
+    /**
+     *
+     * 播放记录
+     * @param singId
+     * @return
+     * @throws SQLException
+     */
     @Override
     public Sing selectSing(Integer singId) throws SQLException {
         return userDao.selectListSing(singId);
@@ -59,5 +66,16 @@ public class UserServceImple implements UserService {
     @Override
     public List<UserSing> userSingListAll(Integer u_id) throws SQLException {
         return userDao.selectUpdown(u_id);
+    }
+
+    /**
+     * 搜索歌曲
+     * @param singName
+     * @return
+     * @throws SQLException
+     */
+    @Override
+    public List<Sing> selectSingByName(String singName) throws SQLException {
+        return userDao.selectMidList(singName);
     }
 }
