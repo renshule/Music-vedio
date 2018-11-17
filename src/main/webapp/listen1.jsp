@@ -219,7 +219,7 @@
 
 
       $('.fa.fa-search').click(function () {
-          alert($('form').serialize());
+          /*alert($('form').serialize());*/
           /*singName =$('#inp').prev().attr('name');
           alert(singName)*/
           //传递过去搜索的参数

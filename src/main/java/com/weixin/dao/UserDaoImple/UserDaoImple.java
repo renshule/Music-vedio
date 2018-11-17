@@ -80,7 +80,7 @@ public class UserDaoImple implements UserDao {
 
     @Override
     public List<UserSing> selectUpdown(Integer u_id) throws SQLException {
-        return C3p0Utils.qr.query("select Sing_name singName from usersing where u_id=?",new BeanListHandler<>(UserSing.class),u_id);
+        return C3p0Utils.qr.query("select DISTINCT Sing_name singName from usersing where u_id=?",new BeanListHandler<>(UserSing.class),u_id);
     }
 
     /**
