@@ -184,7 +184,6 @@
                     <div class="m-t-n-xxs">
                       <c:forEach items="${adList}" var="ad">
                       <div class="item pos-rlt">
-                        <a href="https://m.xtep.com.cn/" >
                           <span class="block h3 font-bold text-success text-u-c">${ad.adIntro}</span>
                           <img src="${ad.adPic}" height="157px" width="314px">
                         </a>
